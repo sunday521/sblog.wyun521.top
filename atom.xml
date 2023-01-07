@@ -6,7 +6,7 @@
   <link href="https://sblog.wyun521.top/atom.xml" rel="self"/>
   
   <link href="https://sblog.wyun521.top/"/>
-  <updated>2023-01-07T14:01:10.108Z</updated>
+  <updated>2023-01-07T14:08:38.580Z</updated>
   <id>https://sblog.wyun521.top/</id>
   
   <author>
@@ -21,8 +21,19 @@
     <link href="https://sblog.wyun521.top/posts/f6fd029b.html"/>
     <id>https://sblog.wyun521.top/posts/f6fd029b.html</id>
     <published>2023-01-07T14:01:10.000Z</published>
-    <updated>2023-01-07T14:01:10.108Z</updated>
+    <updated>2023-01-07T14:08:38.580Z</updated>
     
+    <content type="html"><![CDATA[<p>在部署Hexo时，出现了以下错误：</p><p><img                       lazyload                     src="/images/loading.svg"                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230107220445.png"                      alt="20230107220445"                ></p><p>解决办法：</p><ol><li><p>删除站点根目录下的<code>.deploy_git</code>文件夹（稍后会自动生成）</p></li><li><p>执行以下命令</p></li></ol><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure></div><ol start="3"><li>Hexo三连重新部署</li></ol><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl;hexo g;hexo d</span><br></pre></td></tr></table></figure></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在部署Hexo时，出现了以下错误：&lt;/p&gt;
+&lt;p&gt;&lt;img  
+                     lazyload
+                     src=&quot;/images/loading.svg&quot;
+                     data-sr</summary>
+      
     
     
     
