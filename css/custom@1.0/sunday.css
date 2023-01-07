@@ -1,0 +1,31 @@
+
+
+/* 1. 导航居中 */
+/* .header-wrapper .header-content .right .pc .menu-list {
+
+} */
+
+/* 2. code代码块 */
+code {
+    border-radius: 8px;
+}
+
+/* 3. 标题 */
+.markdown-body h3:hover {
+    border-bottom: 1px solid #333;
+}
+
+/* 4. 列表 #0075eb*/
+.markdown-body ol li::marker {
+    color: #005080; 
+}
+
+.markdown-body ul li::marker {
+    content: '>';
+    color: #005080;
+    padding-left: 1em;
+}
+
+.markdown-body ul li {
+    padding-left: 0.4em;
+}
