@@ -43,7 +43,7 @@
     <script id="hexo-configurations">
     let REDEFINE = window.REDEFINE || {};
     REDEFINE.hexo_config = {"hostname":"sblog.wyun521.top","root":"/","language":"zh-CN","path":"search.xml"};
-    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
     REDEFINE.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -554,7 +554,7 @@
             
 
             <div class="article-content markdown-body">
-                <h3 id="基本选择器"><a class="header-anchor" href="#基本选择器">#</a>基本选择器</h3>
+                <h3 id="基本选择器">基本选择器</h3>
 <table>
 <thead>
 <tr>
@@ -586,23 +586,23 @@
 </tr>
 </tbody>
 </table>
-<h3 id="相邻选择器"><a class="header-anchor" href="#相邻选择器">#</a>相邻选择器</h3>
+<h3 id="相邻选择器">相邻选择器</h3>
 <p>选择所有指定元素的相邻后一个兄弟节点</p>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1-2<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>p0 被选中<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;good&quot;</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>p1 被选中<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>p2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="后代选择器"><a class="header-anchor" href="#后代选择器">#</a>后代选择器</h3>
+<h3 id="后代选择器">后代选择器</h3>
 <p>在所有后代节点中选</p>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h3 id="子选择器"><a class="header-anchor" href="#子选择器">#</a>子选择器</h3>
+<h3 id="子选择器">子选择器</h3>
 <p>与后代选择器不同的是，它只在亲儿子中选</p>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h3 id="并集选择器"><a class="header-anchor" href="#并集选择器">#</a>并集选择器</h3>
+<h3 id="并集选择器">并集选择器</h3>
 <p>也叫分组选择器，选择用<code>，</code>分隔的所有元素</p>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h3 id="交集选择器"><a class="header-anchor" href="#交集选择器">#</a>交集选择器</h3>
+<h3 id="交集选择器">交集选择器</h3>
 <p>选择指定类名的指定元素</p>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h3 id="伪类选择器"><a class="header-anchor" href="#伪类选择器">#</a>伪类选择器</h3>
+<h3 id="伪类选择器">伪类选择器</h3>
 <p>根据元素的状态或所处 DOM 结构选择元素</p>
 <ol>
 <li>动态伪类选择器</li>
@@ -652,7 +652,7 @@
 <p>n可以是数字（从0开始）、关键字（even，odd）、公式等</p>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 啥都选不到,因为元素div的第二个孩子不是p元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 选到2号p标签 */</span></span><br><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>4<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="属性选择器（CSS3）"><a class="header-anchor" href="#属性选择器（CSS3）">#</a>属性选择器（CSS3）</h3>
+<h3 id="属性选择器（CSS3）">属性选择器（CSS3）</h3>
 <table>
 <thead>
 <tr>
@@ -683,7 +683,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="伪元素选择器-CSS3"><a class="header-anchor" href="#伪元素选择器-CSS3">#</a>伪元素选择器(CSS3)</h3>
+<h3 id="伪元素选择器-CSS3">伪元素选择器(CSS3)</h3>
 <p>伪元素选择器利用 CSS 创建新标签元素，而不需要 HTML 标签，从而简化 HTML 结构</p>
 <table>
 <thead>
@@ -711,7 +711,7 @@
 </blockquote>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 伪元素字体图标 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;\e91e&#x27;</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 伪元素清除浮动 */</span></span><br><span class="line"><span class="comment">/* 1、额外标签法（隔墙法） */</span></span><br><span class="line"><span class="comment">/* 在浮动元素后面添加一个块级标签（如div），并设置 clear: both */</span></span><br><span class="line">&lt;<span class="selector-tag">div</span> style=&quot;<span class="attribute">clear</span>:both<span class="string">&quot; &gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">/* 2、父级元素添加overflow，将其属性值设置为 hidden、 auto 或 scroll */</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">/* 3、父级添加after伪元素 */</span></span><br><span class="line"><span class="string">.clearfix:after &#123;</span></span><br><span class="line"><span class="string">  content: &quot;</span><span class="string">&quot;; 必须要有content属性</span></span><br><span class="line"><span class="string">  display: block; 块级元素</span></span><br><span class="line"><span class="string">  height: 0; 不要看见该元素</span></span><br><span class="line"><span class="string">  clear: both; 核心代码清除浮动</span></span><br><span class="line"><span class="string">  visibility: hidden; 不要看见该元素</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.clearfix &#123; /* IE6、 7 专有 */</span></span><br><span class="line"><span class="string">  *zoom: 1;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4、父级元素添加双伪元素</span></span><br><span class="line"><span class="string">.clearfix:before,.clearfix:after &#123;</span></span><br><span class="line"><span class="string">  content:&quot;</span><span class="string">&quot;;</span></span><br><span class="line"><span class="string">  display:table; </span></span><br><span class="line"><span class="string">&#125; </span></span><br><span class="line"><span class="string">clearfix:after &#123;</span></span><br><span class="line"><span class="string">  clear:both;</span></span><br><span class="line"><span class="string">&#125; </span></span><br><span class="line"><span class="string">clearfix &#123;</span></span><br><span class="line"><span class="string">  *zoom:1;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="CSS选择器案例"><a class="header-anchor" href="#CSS选择器案例">#</a>CSS选择器案例</h3>
+<h3 id="CSS选择器案例">CSS选择器案例</h3>
 <hr>
 <p>ref：</p>
 <ul>
@@ -753,7 +753,7 @@
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </span>
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">Github英文识记（自用）</span>
+                                    <span class="post-nav-title-item">Github使用指南</span>
                                     <span class="post-nav-item">上一篇</span>
                                 </span>
                             </a>
@@ -766,7 +766,7 @@
                             href="/posts/203dfdcf.html"
                             >
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">MD模板</span>
+                                    <span class="post-nav-title-item">Markdown文章写作模板</span>
                                     <span class="post-nav-item">下一篇</span>
                                 </span>
                                 <span class="right arrow-icon flex-center">

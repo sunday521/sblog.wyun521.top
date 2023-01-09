@@ -9,7 +9,7 @@
     
     <title>
         
-            MD模板 |
+            Markdown文章写作模板 |
         
         星期天
     </title>
@@ -43,7 +43,7 @@
     <script id="hexo-configurations">
     let REDEFINE = window.REDEFINE || {};
     REDEFINE.hexo_config = {"hostname":"sblog.wyun521.top","root":"/","language":"zh-CN","path":"search.xml"};
-    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
     REDEFINE.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -494,7 +494,7 @@
     <div class="post-page-container">
         <div class="article-content-container">
             <div class="article-title">
-                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">MD模板</h1></span>
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">Markdown文章写作模板</h1></span>
             </div>
 
             
@@ -544,7 +544,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-file-word"></i>&nbsp;<span>591 字</span>
+            <i class="fa-regular fa-file-word"></i>&nbsp;<span>666 字</span>
         </span>
     
     
@@ -581,27 +581,20 @@
                 ></p>
 <h2>QQ截图自定义</h2>
 <ol>
-<li>Shift+A 屏幕截图</li>
+<li>Ctrl+Alt+I 屏幕截图</li>
 <li>Ctrl+Shift+A 录屏</li>
 </ol>
 <h2>可选的文章头</h2>
 <div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1. 文章置顶，数字越大越靠前--&gt;</span><br><span class="line">sticky: 999   </span><br><span class="line"></span><br><span class="line">&lt;!-- 2. 摘要 --&gt;</span><br><span class="line">excerpt: 这是文章摘要的内容</span><br><span class="line"></span><br><span class="line">&lt;!-- 3. 摘要截取，截取more注释前的文本作为这篇文章的摘要 --&gt;</span><br><span class="line">&lt;!-- 优先级低于excerpt --&gt;</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">margin: -28px -28px 20px -28px;</span><br><span class="line"></span><br><span class="line">&lt;!-- 4. 文章卡片缩略图 --&gt;</span><br><span class="line">thumbnail: https://evan.beee.top/img/wallhaven-wqery6-light.webp</span><br></pre></td></tr></table></figure></div>
-<h2>Emoji</h2>
-<p>😀 🤪 🤣 😄 🥳 🤔 🧐<br>
-🤨 😐 🙁 👉 👇 👍 👏<br>
-👀 💀 👻 🙈 🎅<br>
-🦆 🦢 🐧 🐤 🐌 🦀 🌱 🌴<br>
-💌 💘 🎈 🎉 📢 🎀 🔖 📒<br>
-🚗 🛹 ⚓ 🚢 🚀<br>
-⭐ 🔥 🌈 🪶 📌 ✅ 📝<br>
-🥝 🍎 🍉 🥑 🍕 🍖 🍡 🍬 🍭 🍰</p>
-<p>更多emoji详见<a class="link"   target="_blank" rel="noopener" href="https://www.webfx.com/tools/emoji-cheat-sheet/" >Emoji Cheat Sheet <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h2>文本</h2>
-<div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">psw</span>&gt;</span></span>隐藏文本<span class="language-xml"><span class="tag">&lt;/<span class="name">psw</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>键盘文本<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">mark</span>&gt;</span></span>高亮文本<span class="language-xml"><span class="tag">&lt;/<span class="name">mark</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>划线文本<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">psw</span>&gt;</span></span>隐藏文本<span class="language-xml"><span class="tag">&lt;/<span class="name">psw</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>键盘文本<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">mark</span>&gt;</span></span>高亮文本<span class="language-xml"><span class="tag">&lt;/<span class="name">mark</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>划线文本<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;nr&quot;</span>&gt;</span></span></span><br><span class="line">  红色笔记</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
 <p><psw>隐藏文本</psw><br>
 <kbd>键盘文本</kbd><br>
 <mark>高亮文本</mark><br>
 <u>划线文本</u></p>
+<div class="nr">
+  红色笔记
+</div>
 <h2>表格table</h2>
 <div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|属性|描述|</span><br><span class="line">|----|----|</span><br><span class="line">|属性|值|</span><br></pre></td></tr></table></figure></div>
 <table>
@@ -618,6 +611,16 @@
 </tr>
 </tbody>
 </table>
+<h2>Emoji</h2>
+<p>😀 🤪 🤣 😄 🥳 🤔 🧐<br>
+🤨 😐 🙁 👉 👇 👍 👏<br>
+👀 💀 👻 🙈 🎅<br>
+🦆 🦢 🐧 🐤 🐌 🦀 🌱 🌴<br>
+💌 💘 🎈 🎉 📢 🎀 🔖 📒<br>
+🚗 🛹 ⚓ 🚢 🚀<br>
+⭐ 🔥 🌈 🪶 📌 ✅ 📝<br>
+🥝 🍎 🍉 🥑 🍕 🍖 🍡 🍬 🍭 🍰</p>
+<p>更多emoji详见<a class="link"   target="_blank" rel="noopener" href="https://www.webfx.com/tools/emoji-cheat-sheet/" >Emoji Cheat Sheet <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h2>笔记</h2>
 <p>取值：nr(红色)、no(橙色)、ny(黄色)、ng(绿色)、nb(蓝色)、np(紫色)、ngra(灰色)</p>
 <div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!---红色---&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;nr&quot;</span>&gt;</span></span><br><span class="line">  红色笔记</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
@@ -646,14 +649,14 @@
 <div class="nr">
   尽量少在文章中使用外挂标签语法，它会降低文章的可移植性！
 </div>
-<h3 id="折叠框folding"><a class="header-anchor" href="#折叠框folding">#</a>折叠框folding</h3>
+<h3 id="折叠框folding">折叠框folding</h3>
 <div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% folding blue,标题%&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endfolding %&#125;</span><br></pre></td></tr></table></figure></div>
 <details class="folding-tag" blue><summary> 标题 </summary>
               <div class='content'>
               <p>内容</p>
               </div>
             </details>
-<h3 id="复选列表checkbox"><a class="header-anchor" href="#复选列表checkbox">#</a>复选列表checkbox</h3>
+<h3 id="复选列表checkbox">复选列表checkbox</h3>
 <p>取值：red,yellow,green,cyan,blue,gray</p>
 <div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% checkbox 内容 %&#125;</span><br><span class="line">&#123;% checkbox green checked, 内容 %&#125;</span><br><span class="line">&#123;% checkbox plus green checked, 内容 %&#125;</span><br><span class="line">&#123;% checkbox minus yellow checked, 内容 %&#125;</span><br><span class="line">&#123;% checkbox times red checked, 内容 %&#125;</span><br></pre></td></tr></table></figure></div>
 <div class='checkbox'><input type="checkbox" />
@@ -671,7 +674,7 @@
 <div class='checkbox times red checked'><input type="checkbox" checked="checked"/>
             <p>内容</p>
             </div>
-<h3 id="单选列表radio"><a class="header-anchor" href="#单选列表radio">#</a>单选列表radio</h3>
+<h3 id="单选列表radio">单选列表radio</h3>
 <p>取值：red,yellow,green,cyan,blue,gray</p>
 <div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% radio 内容 %&#125;</span><br><span class="line">&#123;% radio green checked, 内容 %&#125;</span><br></pre></td></tr></table></figure></div>
 <div class='checkbox'><input type="radio" />
@@ -688,6 +691,11 @@
                      data-src="https://mysource-hexo.wyun521.top/img/avator/7.jpg"
                       alt="周杰伦"
                 ></p>
+<h2>Redefine指南</h2>
+<div class="nr">
+  如果你升级了 Redefine 主题，主题配置文件 /node_modules/hexo-theme-redefine/_config.yml 的 version 的值必须跟 _config.redefine.yml 版本号保持一致！!
+    _config.redefine.yml 中的版本号需要你手动更改
+</div>
 
             </div>
 
@@ -695,7 +703,7 @@
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：MD模板</li>
+        <li>本文标题：Markdown文章写作模板</li>
         <li>本文作者：Sunday</li>
         <li>创建时间：2023-01-05 19:31:30</li>
         <li>
@@ -742,10 +750,10 @@
                         <div class="article-next">
                             <a class="next"
                             rel="next"
-                            href="/posts/e26fc5f5.html"
+                            href="/posts/f05c05c2.html"
                             >
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">css入门教程</span>
+                                    <span class="post-nav-title-item">HTML回顾</span>
                                     <span class="post-nav-item">下一篇</span>
                                 </span>
                                 <span class="right arrow-icon flex-center">
@@ -808,7 +816,7 @@
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>目录</strong></div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">PicGo上传图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">QQ截图自定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">可选的文章头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Emoji</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">表格table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">警告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">外挂标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%8F%A0%E6%A1%86folding"><span class="nav-number">10.1.</span> <span class="nav-text">折叠框folding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E9%80%89%E5%88%97%E8%A1%A8checkbox"><span class="nav-number">10.2.</span> <span class="nav-text">复选列表checkbox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%80%89%E5%88%97%E8%A1%A8radio"><span class="nav-number">10.3.</span> <span class="nav-text">单选列表radio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">其他</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">PicGo上传图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">QQ截图自定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">可选的文章头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">表格table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">Emoji</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">警告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">外挂标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%8F%A0%E6%A1%86folding"><span class="nav-number">10.1.</span> <span class="nav-text">折叠框folding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E9%80%89%E5%88%97%E8%A1%A8checkbox"><span class="nav-number">10.2.</span> <span class="nav-text">复选列表checkbox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%80%89%E5%88%97%E8%A1%A8radio"><span class="nav-number">10.3.</span> <span class="nav-text">单选列表radio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">12.</span> <span class="nav-text">Redefine指南</span></a></li></ol>
     </div>
 </div>
             </div>

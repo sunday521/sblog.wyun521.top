@@ -43,7 +43,7 @@
     <script id="hexo-configurations">
     let REDEFINE = window.REDEFINE || {};
     REDEFINE.hexo_config = {"hostname":"sblog.wyun521.top","root":"/","language":"zh-CN","path":"search.xml"};
-    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
     REDEFINE.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -674,7 +674,7 @@
 <p>tail命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> / &gt;&gt; test.txt</span><br><span class="line"><span class="built_in">tail</span> test.txt   <span class="comment">#默认查看尾部10行</span></span><br><span class="line"><span class="comment">#proc</span></span><br><span class="line"><span class="comment">#root</span></span><br><span class="line"><span class="comment">#run</span></span><br><span class="line"><span class="comment">#sbin</span></span><br><span class="line"><span class="comment">#srv</span></span><br><span class="line"><span class="comment">#sys</span></span><br><span class="line"><span class="comment">#tmp</span></span><br><span class="line"><span class="comment">#usr</span></span><br><span class="line"><span class="comment">#var</span></span><br><span class="line"><span class="comment">#www</span></span><br><span class="line"><span class="built_in">tail</span> -5 test.txt    <span class="comment">#查看尾部5行内容</span></span><br><span class="line"><span class="comment">#sys</span></span><br><span class="line"><span class="comment">#tmp</span></span><br><span class="line"><span class="comment">#usr</span></span><br><span class="line"><span class="comment">#var</span></span><br><span class="line"><span class="comment">#www</span></span><br><span class="line"><span class="built_in">tail</span> -f -5 test.txt</span><br><span class="line"><span class="built_in">echo</span> 123 &gt;&gt; test.txt</span><br><span class="line"><span class="comment">#sys</span></span><br><span class="line"><span class="comment">#tmp</span></span><br><span class="line"><span class="comment">#usr</span></span><br><span class="line"><span class="comment">#var</span></span><br><span class="line"><span class="comment">#www</span></span><br><span class="line"><span class="comment">#123</span></span><br></pre></td></tr></table></figure></div>
 <h2>命令补充</h2>
-<h3 id="vim命令"><a class="header-anchor" href="#vim命令">#</a>vim命令</h3>
+<h3 id="vim命令">vim命令</h3>
 <p><code>vim</code>命令可以对文本进行编辑</p>
 <p>vim的三种模式</p>
 <ul>
@@ -709,14 +709,14 @@
 <p>tips：CentOS系统安装包.rpm使用yum包管理器，而Ubuntu系统安装包.deb使用apt包管理器。apt包管理器与yum包管理器用法基本一致，不再列举</p>
 </blockquote>
 <h2>systemctl服务管理✅</h2>
-<h3 id="系统内置的服务举例"><a class="header-anchor" href="#系统内置的服务举例">#</a>系统内置的服务举例</h3>
+<h3 id="系统内置的服务举例">系统内置的服务举例</h3>
 <ul>
 <li>NetworkManager  主网络服务</li>
 <li>network         副网络服务</li>
 <li>firewalld       防火墙服务</li>
 <li>sshd            安全的远程登录服务</li>
 </ul>
-<h3 id="systemctl命令"><a class="header-anchor" href="#systemctl命令">#</a>systemctl命令</h3>
+<h3 id="systemctl命令">systemctl命令</h3>
 <p><strong>systemctl命令常用来控制一些软件（服务）的启动、停止、开机自启。</strong></p>
 <details class="folding-tag" blue><summary> systemctl命令用法 </summary>
               <div class='content'>
@@ -729,13 +729,13 @@
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install -y httpd        <span class="comment">#安装apache服务器软件</span></span><br><span class="line">systemctl status httpd      <span class="comment">#启动web服务</span></span><br><span class="line">systemctl start httpd</span><br><span class="line">systemctl <span class="built_in">enable</span> httpd    <span class="comment">#开机自启</span></span><br></pre></td></tr></table></figure></div>
 <p>可以看出，systemctl命令不仅可以管理系统内置的服务，也能够管理第三方软件所提供的服务，当然，前提是软件注册服务交给systemctl管理，部分软件需要手动添加服务。</p>
 <h2>ln软链接</h2>
-<h3 id="概念"><a class="header-anchor" href="#概念">#</a>概念</h3>
+<h3 id="概念">概念</h3>
 <p>linux系统的 <strong>软链接</strong> 类似Windows系统中的快捷方式，他可以将文件链接到其他位置。注意：</p>
 <ul>
 <li>与文件、目录用-、d标识类似，使用<code>l</code> 标识一个软链接</li>
 <li>软链接和快捷方式一样，只是一个逻辑指向，并不是物理的移动或复制</li>
 </ul>
-<h3 id="ln命令创建软链接"><a class="header-anchor" href="#ln命令创建软链接">#</a>ln命令创建软链接</h3>
+<h3 id="ln命令创建软链接">ln命令创建软链接</h3>
 <details class="folding-tag" blue><summary> ln命令用法 </summary>
               <div class='content'>
               <p>语法：ln -s 被链接的文件 软链接位置</p><p>-s  创建软链接</p>
@@ -744,7 +744,7 @@
 <p>ln命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /etc/yum.conf  ./yum.conf   <span class="comment">#在当前目录下创建一个名称为yum.conf的软链接，指向/etc/yum.conf</span></span><br><span class="line"><span class="built_in">ln</span> -s /etc/yum  ./yum <span class="comment">#文件夹的软链接</span></span><br></pre></td></tr></table></figure></div>
 <h2>date日期和时区</h2>
-<h3 id="date命令"><a class="header-anchor" href="#date命令">#</a>date命令</h3>
+<h3 id="date命令">date命令</h3>
 <p><code>date命令</code>可以查看当前日期和时间</p>
 <details class="folding-tag" blue><summary> date命令用法 </summary>
               <div class='content'>
@@ -759,25 +759,25 @@
 <p>再比如</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">date</span> -d <span class="string">&quot;+1 day&quot;</span>  <span class="comment">#按默认格式显示后一天的日期</span></span><br><span class="line"><span class="built_in">date</span> -d <span class="string">&quot;+1 day&quot;</span> +%Y-%m-%d</span><br><span class="line"><span class="built_in">date</span> -d <span class="string">&quot;+1 month&quot;</span>    <span class="comment">#显示后一个月的日期</span></span><br><span class="line"><span class="built_in">date</span> -d <span class="string">&quot;-1 month&quot;</span>    <span class="comment">#显示前一个月的日期</span></span><br></pre></td></tr></table></figure></div>
 <p>类似的时间标记有year、month、day、hour、minute、second</p>
-<h3 id="linux系统时区的修改"><a class="header-anchor" href="#linux系统时区的修改">#</a>linux系统时区的修改</h3>
+<h3 id="linux系统时区的修改">linux系统时区的修改</h3>
 <p>默认通过date查看的日期时间并不是很准确，我们可以修改时区UTC为上海CST，来使日期时间更准确:</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -f /etc/localtime</span><br><span class="line">sudo <span class="built_in">ln</span> -s /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</span><br></pre></td></tr></table></figure></div>
-<h3 id="使用ntp进行时间同步和校准"><a class="header-anchor" href="#使用ntp进行时间同步和校准">#</a>使用ntp进行时间同步和校准</h3>
+<h3 id="使用ntp进行时间同步和校准">使用ntp进行时间同步和校准</h3>
 <p>ntp程序可以帮我们自动去校准系统时间，下载并启动ntp服务后会 <strong>定期</strong> 的帮我们联网校准系统时间</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install ntp</span><br><span class="line">systemctl start ntpd</span><br><span class="line">systemctl <span class="built_in">enable</span> ntpd <span class="comment">#开机启动</span></span><br></pre></td></tr></table></figure></div>
 <p>当然，我们也可以手动校准（需要root权限）：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntpdate -u ntp.aliyun.com <span class="comment">#通过阿里云提供的服务网址配合ntpdate命令校准时间(安装ntp后会附带这个命令)</span></span><br></pre></td></tr></table></figure></div>
 <h2>IP地址与主机名</h2>
-<h3 id="ifconfig命令"><a class="header-anchor" href="#ifconfig命令">#</a>ifconfig命令</h3>
+<h3 id="ifconfig命令">ifconfig命令</h3>
 <p><strong><code>ifconfig</code>命令可以查看本机的IP地址，一般CentOS系统的网卡名称默认为ens33</strong><br>
 如果ifconfig命令无效，可以执行以下命令安装：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-tools</span><br></pre></td></tr></table></figure></div>
-<h3 id="特殊的IP地址"><a class="header-anchor" href="#特殊的IP地址">#</a>特殊的IP地址</h3>
+<h3 id="特殊的IP地址">特殊的IP地址</h3>
 <ul>
 <li>127.0.0.1  指代本机</li>
 <li>0.0.0.0    可以指代本机，确定端口绑定关系，在放行规则中表示任意IP访问</li>
 </ul>
-<h3 id="主机名"><a class="header-anchor" href="#主机名">#</a>主机名</h3>
+<h3 id="主机名">主机名</h3>
 <p><strong>每台电脑都有一个主机名（可以重复），可以使用<code>hostname</code>命令查看本台计算机的主机名</strong></p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname <span class="comment">#centos7</span></span><br></pre></td></tr></table></figure></div>
 <p>hostname可以查看主机名，而<code>hostnamectl</code>可以修改主机名：</p>
@@ -817,7 +817,7 @@
 <p>设置好linux虚拟主机的固定IP地址后，我们使用XShell远程连接软件连接linux虚拟机时就不需要老是更改IP地址了</p>
 </blockquote>
 <h2>网络请求和下载✅</h2>
-<h3 id="ping命令"><a class="header-anchor" href="#ping命令">#</a>ping命令</h3>
+<h3 id="ping命令">ping命令</h3>
 <p><strong><code>ping命令</code>用于检查服务器或网络是否可以连通</strong></p>
 <details class="folding-tag" blue><summary> ping命令用法 </summary>
               <div class='content'>
@@ -826,7 +826,7 @@
             </details>
 <p>ping命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping baidu.com            <span class="comment">#不指定次数，将一直ping，直到ctrl+C停止</span></span><br><span class="line">ping -c 3 baidu.com       <span class="comment">#ping 3次百度</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="wget命令"><a class="header-anchor" href="#wget命令">#</a>wget命令</h3>
+<h3 id="wget命令">wget命令</h3>
 <p><strong><code>wget</code>是非交互式的文件下载器，可以在命令行内下载网络上的文件</strong></p>
 <details class="folding-tag" blue><summary> wget命令用法 </summary>
               <div class='content'>
@@ -841,7 +841,7 @@
 <li>wget用来下载网络上的文件，只要url有效就可以下载，但需要自行寻找下载地址；</li>
 <li>yum是从“软件商店”上下载，只能下载yum管理器中存在的文件</li>
 </ul>
-<h3 id="curl命令"><a class="header-anchor" href="#curl命令">#</a>curl命令</h3>
+<h3 id="curl命令">curl命令</h3>
 <p><strong><code>curl</code>的作用与python中的requests模块相同，都是用来发起一个http请求，然后得到服务器的响应。服务器响应回来的可以是HTML源码，也可以是提供的要下载的文件</strong></p>
 <details class="folding-tag" blue><summary> curl命令用法 </summary>
               <div class='content'>
@@ -851,7 +851,7 @@
 <p>curl命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl cip.cc   <span class="comment">#cip.cc网站可以响应给我们的IP地址，运营商等信息</span></span><br><span class="line">curl -O http://archive.apache.org/dist/.../hadoop-3.3.0.tar.gz   <span class="comment">#下载网络文件，需要指定-O参数</span></span><br></pre></td></tr></table></figure></div>
 <h2>端口相关✅</h2>
-<h3 id="概念-v2"><a class="header-anchor" href="#概念-v2">#</a>概念</h3>
+<h3 id="概念-v2">概念</h3>
 <p>端口是设备与外界通讯交流的出入口，类似一个房子的门。端口可以分为两大类：</p>
 <ul>
 <li>物理端口：又称接口，是实际存在的，如USB接口，RJ45网口等</li>
@@ -860,23 +860,23 @@
 <blockquote>
 <p>tips：通过<strong>IP+端口</strong>可以锁定一个具体的程序或进程！</p>
 </blockquote>
-<h3 id="端口分类规范"><a class="header-anchor" href="#端口分类规范">#</a>端口分类规范</h3>
+<h3 id="端口分类规范">端口分类规范</h3>
 <ul>
 <li>公认端口(1~1023): 专门给系统内置或者知名的一些程序使用，如SSH的22端口，HTTPS服务的443端口</li>
 <li>注册端口(1024~49151): 用于松散地绑定一些程序或者服务，可以自定义，如MySQL的3306端口，Tomcat的8080端口</li>
 <li>动态端口(49152~65535): 通常不会固定绑定一个程序，而是当程序对外进行网络链接时自动临时分配和使用</li>
 </ul>
-<h3 id="nmap命令"><a class="header-anchor" href="#nmap命令">#</a>nmap命令</h3>
+<h3 id="nmap命令">nmap命令</h3>
 <p><code>nmap</code>可以查看端口占用情况</p>
 <p>nmap命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> yum -y install nmap</span><br><span class="line"> nmap 127.0.0.1    <span class="comment">#查看本机端口占用</span></span><br><span class="line"></span><br><span class="line">port state service</span><br><span class="line">22/tcp open ssh</span><br><span class="line">25/tcp open smtp</span><br><span class="line">80/tcp open http</span><br><span class="line">... ...</span><br></pre></td></tr></table></figure></div>
-<h3 id="netstat命令"><a class="header-anchor" href="#netstat命令">#</a>netstat命令</h3>
+<h3 id="netstat命令">netstat命令</h3>
 <p>我们也可以使用<code>netstat</code>命令查看端口占用</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-tools</span><br><span class="line">netstat -anp | grep 关键字    <span class="comment">#查看包含指定关键字的端口状态以及被哪一个程序或进程占用</span></span><br></pre></td></tr></table></figure></div>
 <h2>进程管理✅</h2>
-<h3 id="概念-v3"><a class="header-anchor" href="#概念-v3">#</a>概念</h3>
+<h3 id="概念-v3">概念</h3>
 <p><strong>每一个程序在运行的时候，会被操作系统注册为系统的一个进程，方便操作系统管理。操作系统会为每一个进程分配一个独有的进程号，也称<code>PID</code>。</strong></p>
-<h3 id="ps命令"><a class="header-anchor" href="#ps命令">#</a>ps命令</h3>
+<h3 id="ps命令">ps命令</h3>
 <p>在windows系统中，可以通过任务管理器查看正在运行中的进程。</p>
 <p>在linux系统中，可以通过<code>ps</code>命令查看运行中的进程相关信息，包括</p>
 <ul>
@@ -894,7 +894,7 @@
             </details>
 <p>ps命令示例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef    <span class="comment">#查看在操作系统中运行的所有进程信息</span></span><br><span class="line">ps -ef | grep 关键字过滤</span><br></pre></td></tr></table></figure></div>
-<h3 id="kill命令"><a class="header-anchor" href="#kill命令">#</a>kill命令</h3>
+<h3 id="kill命令">kill命令</h3>
 <p>在windows任务管理器内，选中一个进程，右击结束进程即可杀死一个进程<br>
 在linux系统中，我们使用<code>kill</code>命令来杀死一个进程</p>
 <details class="folding-tag" blue><summary> kill命令用法 </summary>
@@ -905,7 +905,7 @@
 <p>kill命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep <span class="built_in">tail</span></span><br><span class="line"><span class="built_in">kill</span> -9 98162 <span class="comment">#杀死一个进程，其中98162是查看到的tail进程的ID</span></span><br></pre></td></tr></table></figure></div>
 <h2>主机状态监控</h2>
-<h3 id="top命令"><a class="header-anchor" href="#top命令">#</a>top命令</h3>
+<h3 id="top命令">top命令</h3>
 <p><strong>top命令用来打开一个linux任务管理器，可以查看CPU、内存的使用情况，进行系统资源监控</strong></p>
 <ul>
 <li>top默认5秒刷新一次页面信息</li>
@@ -930,13 +930,13 @@
 <li>e 切换进程内存显示单位，如k m g</li>
 <li>i 不显示正在休眠的进程，只显示当前正在运行的进程</li>
 </ul>
-<h3 id="df命令"><a class="header-anchor" href="#df命令">#</a>df命令</h3>
+<h3 id="df命令">df命令</h3>
 <p><code>df命令</code>可以查看磁盘空间占用</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">df</span> -h        </span><br><span class="line"><span class="comment"># -h以人性化的方式显示，带上单位M、G等</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="iostat命令"><a class="header-anchor" href="#iostat命令">#</a>iostat命令</h3>
+<h3 id="iostat命令">iostat命令</h3>
 <p><code>iostat命令</code>用来查看每秒磁盘写入和读出的字符数</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> iostat [-x] num1 num2   </span><br><span class="line"><span class="comment">#-x显示更多信息  num1刷新间隔 num2刷新几次</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="sar-n-DEV"><a class="header-anchor" href="#sar-n-DEV">#</a>sar -n DEV</h3>
+<h3 id="sar-n-DEV">sar -n DEV</h3>
 <p>sar -n DEV 可以查看网卡（如ens33）每秒发送和接收的数据包大小，监控网络情况</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> sar -n DEV num1 num2</span><br><span class="line"><span class="comment"># -n 查看网络</span></span><br><span class="line"><span class="comment"># DEV 查看网络接口</span></span><br><span class="line"><span class="comment"># num1 刷新间隔</span></span><br><span class="line"><span class="comment"># num2 刷新次数</span></span><br></pre></td></tr></table></figure></div>
 <p>网络状态主要关注以下几个指标：</p>
@@ -946,17 +946,17 @@
 <li>IFACE   本地网卡接口的名称</li>
 </ul>
 <h2>环境变量✅</h2>
-<h3 id="概念-v4"><a class="header-anchor" href="#概念-v4">#</a>概念</h3>
+<h3 id="概念-v4">概念</h3>
 <p><strong>环境变量是操作系统在运行的时候记录的一些关键性的信息，这些信息用来辅助系统运行。在linux系统中执行<code>env</code>命令可以查看当前系统中记录的所有环境变量</strong></p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> | grep PATH</span><br><span class="line"></span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin</span><br></pre></td></tr></table></figure></div>
 <p>linux中的一系列命令本质上其实都是一个个的可执行程序。比如，<code>cd</code>命令的本体其实就是<code>/usr/bin/cd</code>这个程序文件。</p>
 <p><strong>通过在PATH环境变量中添加某个程序的可执行路径，就可以在任何目录下使用这个程序（命令）。</strong><br>
 当执行某个命令时，操作系统会在PATH环境变量中查找是否存在该命令对应的可执行程序，若存在则执行，若不存在会提示找不到。</p>
-<h3 id="符号的使用"><a class="header-anchor" href="#符号的使用">#</a>$符号的使用</h3>
+<h3 id="符号的使用">$符号的使用</h3>
 <p><strong>在linux系统中，我们可以使用<code>$</code>符号去取到环境变量中记录的值</strong></p>
 <p>$符号使用举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">echo</span> <span class="variable">$PATH</span>    <span class="comment"># 输出PATH环境变量的值</span></span><br><span class="line"></span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin</span><br></pre></td></tr></table></figure></div>
-<h3 id="在linux中配置环境变量"><a class="header-anchor" href="#在linux中配置环境变量">#</a>在linux中配置环境变量</h3>
+<h3 id="在linux中配置环境变量">在linux中配置环境变量</h3>
 <p><strong>在linux系统中，用户可以自定义环境变量的键和值。</strong></p>
 <details class="folding-tag" blue><summary> export命令临时设置环境变量 </summary>
               <div class='content'>
@@ -971,9 +971,9 @@
 <p>配置PATH环境变量时要注意，不要直接使用PATH=xxx来配置，这样会导致原来PATH中配置的变量值被覆盖丢失，正确的做法是：<br>
 export PATH=$PATH:xxx</p>
 <h2>linux上传和下载</h2>
-<h3 id="使用FinalShell"><a class="header-anchor" href="#使用FinalShell">#</a>使用FinalShell</h3>
+<h3 id="使用FinalShell">使用FinalShell</h3>
 <p>使用<code>FinalShell</code>软件可以方便地远程连接云服务器或linux虚拟机，同时也可以方便地进行文件的上传和下载操作。</p>
-<h3 id="使用命令行"><a class="header-anchor" href="#使用命令行">#</a>使用命令行</h3>
+<h3 id="使用命令行">使用命令行</h3>
 <p>如果不使用FinalShell的图形界面传输文件，还可以使用命令行方式：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install lrzsz</span><br><span class="line">rz              <span class="comment">#上传文件，会弹出文件选择窗口</span></span><br><span class="line">sz 下载的文件名  <span class="comment">#默认会下载到windows桌面/fsdownload/目录中</span></span><br></pre></td></tr></table></figure></div>
 <ul>
@@ -981,10 +981,10 @@ export PATH=$PATH:xxx</p>
 <li>s: send发送</li>
 </ul>
 <h2>打包和压缩✅</h2>
-<h3 id="概念-v5"><a class="header-anchor" href="#概念-v5">#</a>概念</h3>
+<h3 id="概念-v5">概念</h3>
 <p><strong>打包（归档）仅仅是将多个文件合并在一起，形成一个文件，归档文件大小是所有文件的和。而压缩的目的是为了减少文件的体积大小，减少占用空间，方便传输。</strong></p>
 <p>在Linux系统中，常见的压缩文件后缀有.gz和.zip两种。</p>
-<h3 id="tar命令"><a class="header-anchor" href="#tar命令">#</a>tar命令</h3>
+<h3 id="tar命令">tar命令</h3>
 <details class="folding-tag" blue><summary> tar命令用法 </summary>
               <div class='content'>
               <p>tar [-c -v -x -f  -z -C] 要打包或解打包的文件<br>-c  创建压缩文件<br>-v  显示压缩、解压缩的过程<br>-f  指定要压缩或解压缩的文件,必须在所有选项的最后<br>-x  解压文件<br>-z  gzip模式，默认普通的.tar格式<br>-C  解压到</p>
@@ -992,7 +992,7 @@ export PATH=$PATH:xxx</p>
             </details>
 <p>tar命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打包或压缩</span></span><br><span class="line"> tar -cvf test.tar  1.txt 2.txt 3.txt</span><br><span class="line"> tar -zcvf test.tar.gz 1.txt 2.txt 3.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#解打包或解压缩</span></span><br><span class="line"> tar -xvf test.tar <span class="comment">#解压到当前目录中</span></span><br><span class="line"> tar -xvf test.tar -C /tmp/test    <span class="comment">#解压到指定目录</span></span><br><span class="line"> tar -zxvf test.tar.gz -C /tmp/test    <span class="comment">#解压到指定目录</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="zip命令"><a class="header-anchor" href="#zip命令">#</a>zip命令</h3>
+<h3 id="zip命令">zip命令</h3>
 <p>在linux系统中，也可以创建.zip格式的压缩包，这需要使用zip命令:</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zip test.zip 1.txt 2.txt 3.txt</span><br><span class="line">zip -r test.zip  <span class="built_in">test</span> 1.txt   <span class="comment">#当被压缩的文件包含文件夹时，需要带上-r参数</span></span><br></pre></td></tr></table></figure></div>
 <p>与之相对，unzip命令用来解压.zip格式的压缩文件：</p>
@@ -1000,10 +1000,10 @@ export PATH=$PATH:xxx</p>
 <p>1.tar包就是所说的归档文件,gz和zip才是真正的压缩文件<br>
 2.注意解压的文件会覆盖同名文件</p>
 <h2>用户和权限✅</h2>
-<h3 id="root用户"><a class="header-anchor" href="#root用户">#</a>root用户</h3>
+<h3 id="root用户">root用户</h3>
 <p>root用户拥有系统最大的权限<br>
 普通用户的拥有其HOME目录的所有权限，但在其他目录中通常只有读权限和执行权限，而没有写入权限</p>
-<h3 id="su切换用户"><a class="header-anchor" href="#su切换用户">#</a>su切换用户</h3>
+<h3 id="su切换用户">su切换用户</h3>
 <p>我们可以通过<code>su</code>命令来切换不同的用户。（使用root用户切换到其他用户不需要密码）</p>
 <details class="folding-tag" blue><summary> su命令用法 </summary>
               <div class='content'>
@@ -1011,7 +1011,7 @@ export PATH=$PATH:xxx</p>
               </div>
             </details>
 <p>su命令语法</p>
-<h3 id="sudo提权"><a class="header-anchor" href="#sudo提权">#</a>sudo提权</h3>
+<h3 id="sudo提权">sudo提权</h3>
 <p><code>sudo</code>命令可以临时以root的身份执行一条命令，在执行完毕后，恢复普通用户权限。</p>
 <p><strong>不是所有普通用户都可以使用sudo命令提权，只有经过root用户认证的普通用户才能够sudo提权。root认证方式：</strong><br>
 <strong>以root身份执行<code>visudo</code>命令打开编辑<code>/etc/sudoers</code>文件，在文件末尾添加:</strong></p>
@@ -1019,20 +1019,20 @@ export PATH=$PATH:xxx</p>
 <p>sudo命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@CenOS7 ~]<span class="comment"># visudo</span></span><br><span class="line">[root@CenOS7 ~]<span class="comment"># su - sunday</span></span><br><span class="line">Last login: Sat Dec 10 11:08:13 CST 2022 on pts/0</span><br><span class="line">[sunday@CenOS7 ~] sudo <span class="built_in">mkdir</span> /test</span><br><span class="line">[sunday@CenOS7 /] ll / | grep <span class="built_in">test</span></span><br><span class="line">drwxr-xr-x    2 root root  4096 Dec 10 11:12 <span class="built_in">test</span></span><br></pre></td></tr></table></figure></div>
 <h2>用户和用户组✅</h2>
-<h3 id="概念-v6"><a class="header-anchor" href="#概念-v6">#</a>概念</h3>
+<h3 id="概念-v6">概念</h3>
 <p>在linux系统中，可以配置多个用户，也可以配置多个用户组。针对某一文件，既可以控制用户的权限，也可以控制用户组的权限。<br>
 另外，一个用户可以加入多个用户组中。</p>
-<h3 id="用户管理"><a class="header-anchor" href="#用户管理">#</a>用户管理</h3>
+<h3 id="用户管理">用户管理</h3>
 <p>以root身份执行</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">useradd [-g -d] 用户名</span><br><span class="line"><span class="comment">#添加一个用户</span></span><br><span class="line"><span class="comment"># -g 指定用户所属组，若不指定，会创建与用户同名的用户组并自动加入</span></span><br><span class="line"><span class="comment"># -d 指定用户HOME目录，默认/home/用户名</span></span><br><span class="line"></span><br><span class="line">userdel [-r] 用户名</span><br><span class="line"><span class="comment"># -r 删除用户的同时一并删除其HOME目录</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">id</span> 用户名</span><br><span class="line"><span class="comment">#查看用户所属组等相关信息</span></span><br><span class="line"></span><br><span class="line">usermod -aG 用户组名 用户名</span><br><span class="line"><span class="comment">#将用户加入指定用户组中，一个用户可以加入多个用户组</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="用户组管理"><a class="header-anchor" href="#用户组管理">#</a>用户组管理</h3>
+<h3 id="用户组管理">用户组管理</h3>
 <p>以root身份执行</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd 用户组名</span><br><span class="line">groupdel 用户组名</span><br></pre></td></tr></table></figure></div>
-<h3 id="getent命令"><a class="header-anchor" href="#getent命令">#</a>getent命令</h3>
+<h3 id="getent命令">getent命令</h3>
 <p><code>getent</code>命令可以查看当前系统中有哪些用户组或用户：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getent passwd   <span class="comment">#查看所有用户</span></span><br><span class="line">getent group    <span class="comment">#查看所有用户组</span></span><br></pre></td></tr></table></figure></div>
 <h2>权限管理✅</h2>
-<h3 id="文件权限"><a class="header-anchor" href="#文件权限">#</a>文件权限</h3>
+<h3 id="文件权限">文件权限</h3>
 <details class="folding-tag" blue><summary> 文件的权限说明 </summary>
               <div class='content'>
               <p>drwxr-xr-x 2 root root  4096 Dec 10 11:46 linux</p><p>d文件夹，-文件，l软链接<br>rwx  文件所属用户权限|u<br>r-x  文件所属用户组权限|g<br>r-x  其他用户权限|o</p>
@@ -1044,7 +1044,7 @@ export PATH=$PATH:xxx</p>
 <li>w 修改权限，如mkdir，rm，vim</li>
 <li>x 执行权限，如cd，</li>
 </ul>
-<h3 id="chmod修改权限"><a class="header-anchor" href="#chmod修改权限">#</a>chmod修改权限</h3>
+<h3 id="chmod修改权限">chmod修改权限</h3>
 <p><code>文件的拥有者或root用户</code>可以使用<code>chmod</code>命令去修改文件的权限。</p>
 <details class="folding-tag" blue><summary> chmod命令用法 </summary>
               <div class='content'>
@@ -1053,7 +1053,7 @@ export PATH=$PATH:xxx</p>
             </details>
 <p>chmod命令举例</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u=rwx,g=rx,o=x  1.txt <span class="comment">#或者 chmod 751 1.txt</span></span><br><span class="line"><span class="built_in">chmod</span> -R u=rwx,g=rx,o=x  <span class="built_in">test</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="chown修改所属用户"><a class="header-anchor" href="#chown修改所属用户">#</a>chown修改所属用户</h3>
+<h3 id="chown修改所属用户">chown修改所属用户</h3>
 <p>与chmod命令不同，只有<code>root用户</code>可以使用<code>chown</code>命令去修改文件所属的用户和用户组。<br>
 普通用户不能够随意把自己的文件修改成别人的。</p>
 <details class="folding-tag" blue><summary> chown命令用法 </summary>
@@ -1065,7 +1065,7 @@ export PATH=$PATH:xxx</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> root 1.txt    <span class="comment">#可以只修改所属用户</span></span><br><span class="line"><span class="built_in">chown</span> :root 1.txt    <span class="comment">#也可以只修改所属用户组</span></span><br><span class="line"><span class="built_in">chown</span> root:root 1.txt</span><br><span class="line"><span class="built_in">chown</span> -R  root:root <span class="built_in">test</span></span><br></pre></td></tr></table></figure></div>
 <h1>linux补充</h1>
 <h2>软件安装部署</h2>
-<h3 id="网络适配器"><a class="header-anchor" href="#网络适配器">#</a>网络适配器</h3>
+<h3 id="网络适配器">网络适配器</h3>
 <p>虚拟机中桥接模式和NAT模式的区别：</p>
 <ol>
 <li>桥接模式：直接接入windows当前的网络环境，当windows本身网络不稳定时，虚拟机的网络也不稳定，容易造成虚拟机IP地址的改变</li>
@@ -1076,17 +1076,17 @@ export PATH=$PATH:xxx</p>
 <li>网络适配器 》选择NAT模式</li>
 <li>虚拟网络编辑器 》更改设置 》VMnet8 NAT模式 》确定即可</li>
 </ol>
-<h3 id="重新初始化云盘"><a class="header-anchor" href="#重新初始化云盘">#</a>重新初始化云盘</h3>
+<h3 id="重新初始化云盘">重新初始化云盘</h3>
 <p>重新初始化云盘后将恢复到镜像的初始状态。<br>
 云盘所挂载的ECS实例为“停止状态”才能进行该操作</p>
-<h3 id="密钥对与远程连接"><a class="header-anchor" href="#密钥对与远程连接">#</a>密钥对与远程连接</h3>
-<h4 id="Workbench远程连接"><a class="header-anchor" href="#Workbench远程连接">#</a>Workbench远程连接</h4>
+<h3 id="密钥对与远程连接">密钥对与远程连接</h3>
+<h4 id="Workbench远程连接">Workbench远程连接</h4>
 <ol>
 <li>网络与安全 》密钥对 》 创建密钥对 》输入密钥对名称 》确定 》将自动下载保存<code>keyname.pem</code>密钥对文件</li>
 <li>绑定密钥对 》选择要绑定当前密钥对的实例 》确定</li>
 <li>重启实例 》Workbench远程连接 》 SSH 》选择证书认证 》拖拽上传密钥对文件<code>keyname.pem</code> 》连接</li>
 </ol>
-<h4 id="finalshell远程连接"><a class="header-anchor" href="#finalshell远程连接">#</a>finalshell远程连接</h4>
+<h4 id="finalshell远程连接">finalshell远程连接</h4>
 <ol>
 <li>
 <p>网络与安全 》密钥对 》 创建密钥对 》输入密钥对名称 》确定 》将自动下载保存<code>keyname.pem</code>密钥对文件</p>
@@ -1110,7 +1110,7 @@ export PATH=$PATH:xxx</p>
 <p>Workbench远程连接是通过网页可以对ECS实例进行远程控制，支持复制粘贴文本，支持多操作系统用户登录同一台实例，支持可视化查看系统文件资源。</p>
 </li>
 </ol>
-<h3 id="安装MySQL5-7"><a class="header-anchor" href="#安装MySQL5-7">#</a>安装MySQL5.7</h3>
+<h3 id="安装MySQL5-7">安装MySQL5.7</h3>
 <blockquote>
 <p>tips：安装操作需要root权限</p>
 </blockquote>
@@ -1159,17 +1159,17 @@ export PATH=$PATH:xxx</p>
  <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 第一次设置root远程登录，并配置远程密码使用如下<span class="keyword">SQL</span>命令</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;密码!&#x27;</span>;	<span class="comment">-- 密码需要符合：大于8位，有大写字母，有特殊符号，不能是连续的简单语句如123，abc</span></span><br><span class="line"></span><br><span class="line"># 后续修改密码使用如下<span class="keyword">SQL</span>命令</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;密码&#x27;</span>;</span><br></pre></td></tr></table></figure></div>
 </li>
 </ol>
-<h3 id="安装tomcat✅"><a class="header-anchor" href="#安装tomcat✅">#</a>安装tomcat✅</h3>
+<h3 id="安装tomcat✅">安装tomcat✅</h3>
 <blockquote>
 <p>tips：要安装tomcat，需要先安装JDK</p>
 </blockquote>
-<h4 id="下载JDK"><a class="header-anchor" href="#下载JDK">#</a>下载JDK</h4>
+<h4 id="下载JDK">下载JDK</h4>
 <ol>
 <li><a class="link"   target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads" >点击前往JDK下载 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
 <li>选择并下载<code>jdk-8u351-linux-x64.tar.gz</code><br>
 ==如果没有Oracle账户，注册一个就可以==</li>
 </ol>
-<h4 id="上传安装和配置JDK"><a class="header-anchor" href="#上传安装和配置JDK">#</a>上传安装和配置JDK</h4>
+<h4 id="上传安装和配置JDK">上传安装和配置JDK</h4>
 <ol>
 <li>使用finalshell远程连接虚拟机或云服务器，<code>拖拽上传</code>刚才下载好的JDK压缩包</li>
 <li>解压缩到指定目录下</li>
@@ -1187,9 +1187,9 @@ export PATH=$PATH:xxx</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span>          <span class="comment">#输出PATH的值 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/tmp/test/:/root/bin:/tmp/test/:/usr/local/software/jdk/bin</span></span><br></pre></td></tr></table></figure></div>
 <div class="tip "><p>将JAVA_HOME/bin添加到PATH环境变量后，我们就可以在任意目录下执行其中的命令了</p>
 </div>
-<h4 id="验证JDK是否安装配置成功"><a class="header-anchor" href="#验证JDK是否安装配置成功">#</a>验证JDK是否安装配置成功</h4>
+<h4 id="验证JDK是否安装配置成功">验证JDK是否安装配置成功</h4>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line"></span><br><span class="line">java version <span class="string">&quot;1.8.0_351&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_351-b10)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.351-b10, mixed mode)</span><br></pre></td></tr></table></figure></div>
-<h4 id="安装tomcat"><a class="header-anchor" href="#安装tomcat">#</a>安装tomcat</h4>
+<h4 id="安装tomcat">安装tomcat</h4>
 <p>tomcat建议使用非Root用户安装并启动,可以创建一个用户tomcat用以部署，提高安全性。（万一网站被黑，也拿不到root权限）</p>
 <ol>
 <li>创建tomcat用户</li>
@@ -1212,7 +1212,7 @@ export PATH=$PATH:xxx</p>
 <li>修改权限</li>
 </ol>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R tomcat:tomcat /usr/local/software/*tomcat* <span class="comment">#在root用户下执行 -R修改文件夹中所有文件</span></span><br></pre></td></tr></table></figure></div>
-<h4 id="验证tomcat是否安装成功"><a class="header-anchor" href="#验证tomcat是否安装成功">#</a>验证tomcat是否安装成功</h4>
+<h4 id="验证tomcat是否安装成功">验证tomcat是否安装成功</h4>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/software/</span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">总用量 157904</span><br><span class="line">drwxr-xr-x 9 root root      4096 12月  9 18:40 apache-tomcat-10.0.27</span><br><span class="line">-rw-r--r-- 1 root root  11984522 10月  3 23:53 apache-tomcat-10.0.27.tar.gz</span><br><span class="line">lrwxrwxrwx 1 root root        13 12月  9 18:05 jdk -&gt; jdk1.8.0_351/</span><br><span class="line">drwxr-xr-x 8 root root      4096 12月  9 18:01 jdk1.8.0_351</span><br><span class="line">-rw-r--r-- 1 root root 149697219 12月  9 17:58 jdk-8u351-linux-x64.tar.gz</span><br><span class="line">lrwxrwxrwx 1 root root        41 12月  9 18:40 tomcat -&gt; /usr/local/software/apache-tomcat-10.0.27</span><br></pre></td></tr></table></figure></div>
 <ol>
 <li>切换到tomcat用户（使用该用户去启动tomcat）</li>

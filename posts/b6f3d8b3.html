@@ -43,7 +43,7 @@
     <script id="hexo-configurations">
     let REDEFINE = window.REDEFINE || {};
     REDEFINE.hexo_config = {"hostname":"sblog.wyun521.top","root":"/","language":"zh-CN","path":"search.xml"};
-    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.1","friend_links":{"columns":2}};
     REDEFINE.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -587,7 +587,7 @@
 </ol>
 <p>mysql可视化管理工具推荐使用navicat或DataGrip，两者底层其实都有对SQL语句的封装，我们鼠标点击，就相当于执行一条SQL命令</p>
 <h2>sql命令速查</h2>
-<h3 id="数据定义语言DDL"><a class="header-anchor" href="#数据定义语言DDL">#</a>数据定义语言DDL</h3>
+<h3 id="数据定义语言DDL">数据定义语言DDL</h3>
 <p>DDL是对数据库、数据表、的增删改查（create、drop、alter）</p>
 <table>
 <thead>
@@ -604,7 +604,7 @@
 </tbody>
 </table>
 <p class='p red'>📢 collate指定数据库排序规则，也就是当我们对多个字符串类型的数据进行order by查询时，数据最终排序表现的方式。 utf8_general_ci是不区分大小写的</p>
-<h3 id="数据操作语言DML"><a class="header-anchor" href="#数据操作语言DML">#</a>数据操作语言DML</h3>
+<h3 id="数据操作语言DML">数据操作语言DML</h3>
 <p>DML主要完成数据的增删改（insert、update、delete）</p>
 <table>
 <thead>
@@ -620,9 +620,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="数据查询语言DQL"><a class="header-anchor" href="#数据查询语言DQL">#</a>数据查询语言DQL</h3>
+<h3 id="数据查询语言DQL">数据查询语言DQL</h3>
 <p>DQL是对数据进行查询（select）</p>
-<h3 id="数据控制语言DCL"><a class="header-anchor" href="#数据控制语言DCL">#</a>数据控制语言DCL</h3>
+<h3 id="数据控制语言DCL">数据控制语言DCL</h3>
 <p>DCL用来控制数据库组件的存取（事务commit、事务rollback）</p>
 <h2>mysql存储引擎</h2>
 <kbd>存储引擎</kbd>定义了存储数据、建立索引、更新数据、查询数据的具体实现规则，又称表的类型
@@ -672,7 +672,7 @@
 <p>存储过程用法：</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1. 入参</span></span><br><span class="line"><span class="comment">-- 创建存储过程</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> <span class="operator">&lt;</span>proc_name<span class="operator">&gt;</span>(<span class="operator">&lt;</span>入参或出参<span class="operator">&gt;</span> <span class="operator">&lt;</span>参数名称<span class="operator">&gt;</span> <span class="operator">&lt;</span>参数类型<span class="operator">&gt;</span>)</span><br><span class="line">  <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">declare</span> <span class="operator">&lt;</span>变量名称<span class="operator">&gt;</span> <span class="operator">&lt;</span>变量类型<span class="operator">&gt;</span>;</span><br><span class="line">    if <span class="operator">&lt;</span>参数名称<span class="operator">&gt;</span> <span class="operator">=</span> <span class="operator">&lt;</span>?<span class="operator">&gt;</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> <span class="operator">&lt;</span>变量名称<span class="operator">&gt;</span> <span class="operator">=</span> <span class="string">&#x27;mysql&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> <span class="operator">&lt;</span>变量名称<span class="operator">&gt;</span> <span class="operator">=</span> <span class="string">&#x27;java&#x27;</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> <span class="operator">&lt;</span>目标表<span class="operator">&gt;</span>(字段) <span class="keyword">values</span>(变量名称);</span><br><span class="line">  <span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">call</span> <span class="operator">&lt;</span>proc_name<span class="operator">&gt;</span>(参数);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除存储过程</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">procedure</span> <span class="operator">&lt;</span>proc_name<span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. 出参/返回值</span></span><br><span class="line"><span class="comment">-- 创建存储过程</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">call</span> <span class="operator">&lt;</span>proc_name<span class="operator">&gt;</span>(<span class="variable">@count</span>_num);</span><br><span class="line"><span class="comment">-- 查看调用结果</span></span><br><span class="line"><span class="keyword">select</span> <span class="variable">@count</span>_num</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除存储过程</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">procedure</span> <span class="operator">&lt;</span>proc_name<span class="operator">&gt;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 <h2>mysql数据类型</h2>
-<h3 id="整数类型"><a class="header-anchor" href="#整数类型">#</a>整数类型</h3>
+<h3 id="整数类型">整数类型</h3>
 <table>
 <thead>
 <tr>
@@ -710,7 +710,7 @@
 </tbody>
 </table>
 <p class='p red'>📢 int是最常用的整数类型，适合存储生活中常见的整数。太小存不下，太大又会浪费掉占用的空间</p>
-<h3 id="小数类型"><a class="header-anchor" href="#小数类型">#</a>小数类型</h3>
+<h3 id="小数类型">小数类型</h3>
 <table>
 <thead>
 <tr>
@@ -742,7 +742,7 @@
 <li>D：保留几位小数，小数点后最多保留的十进制数字个数，多余的位自动四舍五入</li>
 </ol>
 <p class='p red'>📢 计算机在进行小数运算时，不可避免地会损失一些精度，所以"金额"尽量不要用浮点数类型，可以使用decimal定点型保证不丢失精度。 除此之外，浮点数和定点数用法基本一致</p>
-<h3 id="字符串类型"><a class="header-anchor" href="#字符串类型">#</a>字符串类型</h3>
+<h3 id="字符串类型">字符串类型</h3>
 <p>常用字符串类型：char(M)，varchar(M)</p>
 <table>
 <thead>
@@ -785,7 +785,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="日期和时间类型"><a class="header-anchor" href="#日期和时间类型">#</a>日期和时间类型</h3>
+<h3 id="日期和时间类型">日期和时间类型</h3>
 <table>
 <thead>
 <tr>
@@ -822,7 +822,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="二进制类型"><a class="header-anchor" href="#二进制类型">#</a>二进制类型</h3>
+<h3 id="二进制类型">二进制类型</h3>
 <p>二进制类型用来保存图片、视频等数据，常用的有tinyblob，blob，mediumblob，longblob</p>
 <table>
 <thead>
@@ -871,14 +871,14 @@
 </tbody>
 </table>
 <h2>基本sql语句</h2>
-<h3 id="操作数据库"><a class="header-anchor" href="#操作数据库">#</a>操作数据库</h3>
+<h3 id="操作数据库">操作数据库</h3>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查看所有的数据库</span></span><br><span class="line"><span class="keyword">show</span> databases;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用数据库</span></span><br><span class="line">use <span class="operator">&lt;</span>dbname<span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建数据库,同时指定字符集和排序规则</span></span><br><span class="line"><span class="keyword">create</span> database <span class="operator">&lt;</span>dbname<span class="operator">&gt;</span> <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> utf8 <span class="keyword">collate</span> utf8_general_ci;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除数据库</span></span><br><span class="line"><span class="keyword">drop</span> database <span class="operator">&lt;</span>dbname<span class="operator">&gt;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<h3 id="操作数据表"><a class="header-anchor" href="#操作数据表">#</a>操作数据表</h3>
+<h3 id="操作数据表">操作数据表</h3>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在操作表之前，需要指定去使用一个数据库</span></span><br><span class="line"><span class="comment">-- 字段参数：主键（非空唯一），自增 ，默认值 </span></span><br><span class="line"><span class="comment">-- 查看数据库中的表</span></span><br><span class="line"><span class="keyword">show</span> tables;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看指定表的结构</span></span><br><span class="line"><span class="keyword">desc</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span> (</span><br><span class="line">     id    <span class="type">int</span>,</span><br><span class="line">     name  <span class="type">varchar</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">     price <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">     <span class="keyword">PRIMARY</span> KEY(id)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改表结构，字段约束</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span> <span class="operator">&lt;</span><span class="keyword">alter</span><span class="operator">|</span><span class="keyword">add</span><span class="operator">|</span><span class="keyword">drop</span><span class="operator">&gt;</span> <span class="keyword">column</span> <span class="operator">&lt;</span>cname<span class="operator">&gt;</span> <span class="operator">&lt;</span>对字段的修改<span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 重命名字段或更改数据类型</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span> change <span class="keyword">column</span> <span class="operator">&lt;</span>old_cname<span class="operator">&gt;</span> <span class="operator">&lt;</span>new_cname<span class="operator">&gt;</span> <span class="operator">&lt;</span>datatype<span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除表</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<h3 id="操作数据"><a class="header-anchor" href="#操作数据">#</a>操作数据</h3>
+<h3 id="操作数据">操作数据</h3>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 插入数据</span></span><br><span class="line"><span class="comment">-- 省略字段列表相当于添加全部字段</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span>(字段列表) <span class="keyword">values</span> (值列表),(值列表)...;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除数据</span></span><br><span class="line"><span class="keyword">delete</span> 字段列表 <span class="keyword">from</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span> <span class="keyword">where</span> 条件</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改数据，字符串值要加&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">update</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span> <span class="keyword">set</span> 字段<span class="operator">=</span>值,字段<span class="operator">=</span>值... <span class="keyword">where</span> 条件</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询</span></span><br><span class="line"><span class="keyword">select</span> 字段列表 <span class="keyword">from</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span> <span class="keyword">where</span> 条件</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 清空表（谨慎使用）</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="operator">&lt;</span>tname<span class="operator">&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 <h2>mysql函数</h2>
-<h3 id="数学函数"><a class="header-anchor" href="#数学函数">#</a>数学函数</h3>
+<h3 id="数学函数">数学函数</h3>
 <table>
 <thead>
 <tr>
@@ -903,7 +903,7 @@
 </table>
 <p>数学函数举例：</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">abs</span>(score) <span class="keyword">from</span> course <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">floor</span>(score) <span class="keyword">from</span> course <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">ceil</span>(score) <span class="keyword">from</span> course <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br></pre></td></tr></table></figure></div>
-<h3 id="字符串函数"><a class="header-anchor" href="#字符串函数">#</a>字符串函数</h3>
+<h3 id="字符串函数">字符串函数</h3>
 <table>
 <thead>
 <tr>
@@ -944,7 +944,7 @@
 </table>
 <p>字符串函数举例：</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">left</span>(name,<span class="number">1</span>) <span class="keyword">from</span> student <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">right</span>(name,<span class="number">2</span>) <span class="keyword">from</span> student <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">substring</span>(name,<span class="number">1</span>,<span class="number">3</span>) <span class="keyword">from</span> student <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> reverse(name) <span class="keyword">from</span> student <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">lower</span>(name) <span class="keyword">from</span> student <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">upper</span>(name) <span class="keyword">from</span> student <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br></pre></td></tr></table></figure></div>
-<h3 id="日期函数"><a class="header-anchor" href="#日期函数">#</a>日期函数</h3>
+<h3 id="日期函数">日期函数</h3>
 <table>
 <thead>
 <tr>
@@ -981,7 +981,7 @@
 </table>
 <p>日期函数举例：</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> curdate();</span><br><span class="line"><span class="keyword">select</span> curtime();</span><br><span class="line"><span class="keyword">select</span> now();</span><br><span class="line"><span class="keyword">select</span> datediff(<span class="string">&#x27;2022-12-26&#x27;</span>,<span class="string">&#x27;2022-12-01&#x27;</span>);  <span class="comment">-- 25</span></span><br><span class="line"><span class="keyword">select</span> datediff(<span class="string">&#x27;2022-12-01&#x27;</span>,<span class="string">&#x27;2022-12-26&#x27;</span>);  <span class="comment">-- -25</span></span><br><span class="line"><span class="keyword">select</span> adddate(<span class="string">&#x27;2022-12-01&#x27;</span>,<span class="number">25</span>);  <span class="comment">-- 2022-12-26</span></span><br><span class="line"><span class="keyword">select</span> adddate(<span class="string">&#x27;2022-12-01&#x27;</span>,<span class="number">-25</span>);  <span class="comment">-- 2022-11-06</span></span><br><span class="line"><span class="keyword">select</span> subdate(<span class="string">&#x27;2022-11-29&#x27;</span>,<span class="number">31</span>);  <span class="comment">-- 2022-10-29</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="聚合函数"><a class="header-anchor" href="#聚合函数">#</a>聚合函数</h3>
+<h3 id="聚合函数">聚合函数</h3>
 <table>
 <thead>
 <tr>

@@ -1,10 +1,4 @@
 
-
-/* 1. 导航居中 */
-/* .header-wrapper .header-content .right .pc .menu-list {
-
-} */
-
 /* 2. code代码块 */
 code {
     border-radius: 8px;
@@ -28,4 +22,20 @@ code {
 
 .markdown-body ul li {
     padding-left: 0.4em;
+}
+
+/* 5. 二级导航菜单项hover */
+.header-wrapper .header-content .right .pc .menu-list .menu-item .sub-menu li a:hover {
+    background-color: var(--primary-color);
+    color: var(--second-background-color);
+}
+
+/* 6. 搜索 */
+.search-pop-overlay .search-popup {
+    border-radius: 16px;
+}
+
+.search-pop-overlay .search-popup .search-header {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
