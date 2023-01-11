@@ -422,9 +422,6 @@ button {
   transition-timing-function: ease, ease, ease, ease, linear;
 }
 .btn:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
-.btn:hover {
   color: var(--background-color);
   background: var(--primary-color);
 }
@@ -1966,9 +1963,6 @@ pre .deletion {
   padding-top: 2px;
   box-shadow: var(--redefine-box-shadow);
 }
-.header-wrapper:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 .header-wrapper .header-content {
   position: relative;
   height: 100%;
@@ -2158,9 +2152,6 @@ pre .deletion {
   .header-wrapper .header-content .right .pc .menu-list .menu-item:hover .sub-menu {
     margin-bottom: 3px;
   }
-}
-.header-wrapper .header-content .right .pc .menu-list .menu-item:hover .sub-menu:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
 }
 @media (max-width: 780px) {
   .header-wrapper .header-content .right .pc .menu-list .menu-item:hover .sub-menu {
@@ -2371,9 +2362,6 @@ pre .deletion {
 .post-tools-container .tools-list li:last-child {
   margin-bottom: 0;
 }
-.post-tools-container .tools-list li:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 .post-tools-container .tools-list li.page-aside-toggle {
   display: none;
 }
@@ -2573,9 +2561,6 @@ pre .deletion {
   .page-template-container {
     margin-bottom: 18px;
   }
-}
-.page-template-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
 }
 @media (max-width: 780px) {
   .page-template-container {
@@ -2836,9 +2821,6 @@ pre .deletion {
   background: var(--background-color);
   box-shadow: var(--redefine-box-shadow);
 }
-.category-list-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 @media (max-width: 780px) {
   .category-list-container {
     padding: 24px;
@@ -2993,9 +2975,6 @@ pre .deletion {
     margin-bottom: 22.8px;
   }
 }
-.home-content-container .home-article-list .home-article-item:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 @media (max-width: 780px) {
   .home-content-container .home-article-list .home-article-item {
     padding: 22.400000000000002px;
@@ -3134,9 +3113,6 @@ pre .deletion {
     margin-bottom: 18px;
   }
 }
-.archive-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 @media (max-width: 780px) {
   .archive-container {
     padding: 24px;
@@ -3196,9 +3172,6 @@ pre .deletion {
   .post-page-container .article-content-container {
     margin-bottom: 18px;
   }
-}
-.post-page-container .article-content-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
 }
 @media (max-width: 780px) {
   .post-page-container .article-content-container {
@@ -3353,10 +3326,6 @@ pre .deletion {
   transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
   transition-timing-function: ease, ease, ease, ease, linear;
 }
-.post-page-container .article-content-container .article-nav .article-prev:hover,
-.post-page-container .article-content-container .article-nav .article-next:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 @media (max-width: 780px) {
   .post-page-container .article-content-container .article-nav .article-prev,
   .post-page-container .article-content-container .article-nav .article-next {
@@ -3450,9 +3419,6 @@ pre .deletion {
   transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.3s;
   transition-timing-function: ease, ease, ease, ease, ease-out;
 }
-.post-page-container .toc-content-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 @media (max-width: 780px) {
   .post-page-container .toc-content-container {
     left: 0 !important;
@@ -3476,9 +3442,6 @@ pre .deletion {
   .category-container {
     margin-bottom: 18px;
   }
-}
-.category-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
 }
 @media (max-width: 780px) {
   .category-container {
@@ -3531,9 +3494,6 @@ pre .deletion {
     margin-bottom: 18px;
   }
 }
-.tag-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
 @media (max-width: 780px) {
   .tag-container {
     padding: 24px;
@@ -3573,9 +3533,6 @@ pre .deletion {
   box-sizing: border-box;
   background: var(--background-color);
   box-shadow: var(--redefine-box-shadow);
-}
-.tagcloud-container:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
 }
 @media (max-width: 780px) {
   .tagcloud-container {

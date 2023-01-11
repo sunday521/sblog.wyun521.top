@@ -1,3 +1,25 @@
+/* :root {
+    --section-big-shadow: 0px 0px 30px 0px rgba(83, 83, 83, 0.5647058823529412);
+    --main-section-color: rgb(249, 222.8, 222.8);
+    --main-color: rgb(180, 75.2, 75.2);
+    --text-sub-color: rgba(2, 13, 30, 0.5333333333333333);
+
+} */
+
+/* hexo-generator-random hexo-helper-live2d live2d-widget-model-epsilon2_1
+
+*/
+
+
+
+
+:root {
+    --section-big-shadow: 0px 0px 30px 0px rgba(83, 83, 83, 0.5647058823529412);
+    --main-section-color: rgb(204, 234.6, 255);
+    --main-color: rgb(0, 122.4, 204);
+    --text-sub-color: rgba(2, 13, 30, 0.5333333333333333);
+}
+
 
 /* 2. code代码块 */
 code {
@@ -39,3 +61,20 @@ code {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }
+
+
+/* 7.文章卡片 */
+li.home-article-item:hover {
+    box-shadow: var(--section-big-shadow) !important;
+    transform: scale(1.03) !important;
+    transition: all .2s !important;
+    background: var(--main-section-color) !important;
+    border: 1px solid var(--main-color) !important;
+}
+
+.home-article-content.markdown-body,.home-article-content.markdown-body p {
+    /* color: var(--text-sub-color); */
+    font-size: 13px;
+    /* text-align: justify; */
+}
+

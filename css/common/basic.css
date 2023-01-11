@@ -422,9 +422,6 @@ button {
   transition-timing-function: ease, ease, ease, ease, linear;
 }
 .btn:hover {
-  box-shadow: var(--redefine-box-shadow-hover);
-}
-.btn:hover {
   color: var(--background-color);
   background: var(--primary-color);
 }
