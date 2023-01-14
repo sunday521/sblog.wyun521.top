@@ -51,17 +51,80 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
+.progress-bar-container {
+  position fixed
+  top 0
+  left 0
+  width 100%
+  z-index $z-index-9
 
-    
-        <span class="pjax-progress-bar"></span>
-        <span class="pjax-progress-icon">
-            <i class="fa-solid fa-circle-notch fa-spin"></i>
-        </span>
-    
-</div>
+  if (hexo-config('pjax.enable') == true) {
 
+    .pjax-progress-bar {
+      position absolute
+      top 0
+      left 0
+      height 2px
+      width 0
+      background var(--pjax-progress-bar-color)
+      visibility hidden
+      opacity 0
+      z-index $z-index-8
+      transition-t("width", "0", "0.1", "linear")
+
+
+      &.show {
+        opacity 1
+        visibility visible
+      }
+    }
+
+
+    .pjax-progress-icon {
+      position absolute
+      top 0
+      right 0
+      z-index $z-index-8
+      display flex
+      align-items center
+      justify-content center
+      padding 7px 6px 0 0
+      visibility hidden
+      font-size 1.1rem
+      color var(--default-text-color)
+
+      +redefine-tablet() {
+        padding 6px 5px 0 0
+        font-size 1rem
+      }
+
+      &.show {
+        visibility visible
+      }
+    }
+
+  }
+
+  if (hexo-config('style.scroll.progress_bar.enable') == true) {
+
+    .scroll-progress-bar {
+      position absolute
+      top 0
+      left 0
+      width 0
+      height $scroll-progress-bar-height
+      visibility hidden
+      z-index $z-index-7
+      background var(--primary-color)
+      transition-t("width", "0", "0.1", "linear")
+
+      &.hide {
+        display none !important
+      }
+    }
+
+  }
+}
 
 <main class="page-container">
 
@@ -70,418 +133,429 @@
     <div class="page-main-content">
 
         <div class="page-main-content-top">
-            <header class="header-wrapper">
-    
-    <div class="header-content">
-        <div class="left">
-            
-                <a class="logo-image" href="/">
-                    <img src="https://mysource-hexo.wyun521.top/img/cover/logo.png">
-                </a>
-            
-            <a class="logo-title" href="/">
-                星期天
-            </a>
-        </div>
+            $logo-title-font-size = 2rem
+$pc-search-icon-font-size = 1.5rem
+$menu-bar-line-height = 2.5px
+$logo-image-box-width = 46px
 
-        <div class="right">
-            <!-- PC -->
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="" 
-                                    href="/" >
-                                    
-                                        
-                                            <i class="fa-regular fa-house"></i>
-                                        
-                                        首页
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-book"></i>
-                                        
-                                        文章&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/categories">分类
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/tags">标签
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/archives">归档
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/random.html">随便逛逛
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-mug-hot"></i>
-                                        
-                                        生活&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/music">音乐
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/photos">相册
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a target="_blank" rel="noopener" href="https://hin.cool/c/dd.html">滑碟
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-user"></i>
-                                        
-                                        社交&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/friends">朋友圈
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/links">友链
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-gear"></i>
-                                        
-                                        网站&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/admin">后台管理
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a target="_blank" rel="noopener" href="https://nav.wyun521.top/">网址导航
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/statistics">文章统计
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/record">建站日志
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-bars"></i>
-                                        
-                                        其他&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/about">关于
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/bb">哔哔
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/sbase">秘密基地
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <!-- Mobile -->
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+.header-wrapper {
+  font-family "Optima Medium", sans-serif
+  width 100%
+  height 100%
+  box-sizing border-box
+  display flex
+  align-items center
+  justify-content center
+  background $nav-color-bg
+  -webkit-backdrop-filter blur(10px)
+  backdrop-filter blur(10px)
+  padding-top $scroll-progress-bar-height
 
-    <!-- Mobile drawer -->
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
+  hover-style(false, 0, 0)
+
+  .header-content {
+    position relative
+    height 100%
+    width $main-content-width
+    max-width $content-max-width
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    z-index $z-index-5
+
+
+    &.has-first-screen {
+      max-width $content-max-width * 1.2
+    }
+
+    +redefine-tablet() {
+      width $main-content-width-tablet
+    }
+
+    +redefine-mobile() {
+      width $main-content-width-mobile
+    }
+
+    .left {
+      display flex
+      align-items center
+      transition-t("transform", "0", "0.2", "linear")
+
+      .header-shrink & {
+        transform scale(0.72)
+        transform-origin left
+      }
+
+
+      if (hexo-config('base_info.logo_img') && hexo-config('base_info.logo_img') != '') {
+        .logo-image {
+          width $logo-image-box-width
+          height $logo-image-box-width
+          margin-right 8px
+
+
+          +redefine-tablet() {
+            width $logo-image-box-width * 0.9
+            height $logo-image-box-width * 0.9
+          }
+
+          +redefine-mobile() {
+            width $logo-image-box-width * 0.8
+            height $logo-image-box-width * 0.8
+          }
+
+          img {
+            border-radius 6px
+            width 100%
+          }
+        }
+
+      }
+
+      .logo-title {
+        font-size $logo-title-font-size
+        font-family "Optima Bold", sans-serif
+        //letter-spacing 1px
+        line-height 1
+        color var(--first-text-color)
+
+        +redefine-tablet() {
+          font-size $logo-title-font-size * 0.9
+        }
+
+        +redefine-mobile() {
+          font-size $logo-title-font-size * 0.8
+        }
+      }
+
+    }
+
+
+    .right {
+
+      .pc {
+
+        .menu-list {
+          display flex
+          align-items center
+          
+
+          +redefine-tablet() {
+            display none
+          }
+
+
+          .menu-item {
+            float left
+            padding 5px
+            position relative
+            margin-left 30px
+            font-size 1rem
+            cursor pointer
+            color var(--default-text-color)
+
+            &:first-child {
+              margin-left 0
+            }
+
+            a .fa-chevron-down{
+              transform rotate(0deg)
+              transition transform 0.3s ease
+            }
+
+            &:hover a .fa-chevron-down{
+              transform rotate(180deg)
+            }
+
+            &:hover .has-dropdown{
+              &::after {
+                display none !important
+              }
+            }
+
+            &:hover a, .active {
+              &::after {
+                content ''
+                position absolute
+                bottom -5px
+                left 50%
+                width 100%
+                height 2px
+                transform translateX(-50%)
+                background var(--primary-color)
+                transition-t("transform, bottom", "0, 0", "0.2, 0.2", "linear, linear")
+
+                .header-shrink & {
+                  bottom -($header-shrink-height / 2 - 17)
+                }
+              }
+            }
             
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="" 
-                        href="/" >
-                             
-                                
-                                    <i class="fa-regular fa-house"></i>
-                                
-                                首页
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                    
-            
-                
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-book"></i>
-                                
-                                文章&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/categories">分类</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/tags">标签</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/archives">归档</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/random.html">随便逛逛</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-mug-hot"></i>
-                                
-                                生活&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/music">音乐</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/photos">相册</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://hin.cool/c/dd.html">滑碟</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-user"></i>
-                                
-                                社交&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/friends">朋友圈</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/links">友链</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-gear"></i>
-                                
-                                网站&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/admin">后台管理</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://nav.wyun521.top/">网址导航</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/statistics">文章统计</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/record">建站日志</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-bars"></i>
-                                
-                                其他&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/about">关于</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/bb">哔哔</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/sbase">秘密基地</a>
-                            </li>
-                        
-                    
             
 
-        </ul>
-    </div>
+            &.search {
+              font-size $pc-search-icon-font-size
+              margin-left 26px
 
-    <div class="window-mask"></div>
+              i {
+                color var(--default-text-color)
+              }
 
-</header>
+            }
 
+            .sub-menu{
+              position absolute;
+              right auto
+              left 50%
+              -webkit-transform translate(-50%, 0)
+              -o-transform translate(-50%, 0)
+              transform translate(-50%, 0)
+              margin-top 8px
+              width auto
+              text-align: center;
+              list-style:none;
+              padding 0 10px 
+              border-radius 18px
+              //visibility hidden
+              
+
+              max-height 0px
+              overflow hidden
+              transition-t("all", "0", "0.2", "linear") 
+
+              li a {
+                white-space nowrap
+                color var(--default-text-color)
+                font-size 1rem
+                padding 3px 15px
+                display block
+                text-align center
+                border-radius 8px
+                transition-t("all", "0", "0.2", "linear")
+
+                &:hover {
+                  color var(--primary-color)
+                  background-color var(--second-background-color)
+                }
+              }
+            }
+
+          }
+
+        }
+
+        .menu-list .menu-item:hover .sub-menu{
+          //visibility visible
+          max-height 500px
+          transition-t("all", "0", "0.2", "ease")
+          redefine-container(false, 0, 0, 10px, 5px)
+        }
+        
+      }
+
+
+      .mobile {
+        display flex
+        justify-content space-between
+        align-items center
+
+        .icon-item {
+          display none
+          position relative
+          cursor pointer
+          font-size 18px
+          margin-left 12px
+          width 20px
+          height 20px
+          color var(--default-text-color)
+
+          i {
+            color var(--default-text-color)
+          }
+
+          &:first-child {
+            margin-left 0
+          }
+
+          +redefine-tablet() {
+            display flex
+            justify-content center
+            align-items center
+          }
+        }
+
+        .menu-bar {
+
+          .menu-bar-middle {
+            width 18px
+            height $menu-bar-line-height
+            position relative
+            background var(--default-text-color)
+
+            .header-drawer-show & {
+              background transparent
+            }
+
+
+            &::before, &::after {
+              content ''
+              position absolute
+              left 0
+              width 100%
+              height $menu-bar-line-height
+              background var(--default-text-color)
+              transition-t("transform", "0", "0.38", "ease")
+            }
+
+
+            &::before {
+              top -6px
+
+              .header-drawer-show & {
+                transform translateY(6px) rotate(45deg)
+              }
+            }
+
+
+            &::after {
+              bottom -6px
+
+              .header-drawer-show & {
+                transform translateY(-6px) rotate(-45deg)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .header-drawer {
+    width 100%
+    padding $header-height 0 20px 0
+    position absolute
+    top 0
+    left 0
+    transform scaleY(0)
+    transform-origin top
+    z-index $z-index-2
+    background var(--background-color)
+    transition-t("transform", "0", "0.38", "ease")
+
+    .header-drawer-show & {
+      transform scaleY(1)
+    }
+
+    .drawer-menu-list {
+      display flex
+      flex-direction column
+      justify-content flex-start
+      align-items center
+
+      .drawer-menu-item {
+        font-family: "Optima Bold", sans-serif
+        font-size 1rem
+        margin 6px 0
+        height 32px
+
+        a {
+          padding 6px 20px
+          border-radius 20px
+          color var(--default-text-color)
+
+          &:hover {
+            color var(--second-text-color)
+            border 1px solid var(--default-text-color)
+          }
+
+
+          &.active {
+            border 1px solid var(--default-text-color)
+            color var(--second-text-color)
+          }
+        }
+
+        .has-dropdown {
+          font-family: "Optima Bold", sans-serif
+        }
+
+        a .fa-chevron-down{
+          transform rotate(0deg)
+          transition transform 0.3s ease
+        }
+
+        &:hover a .fa-chevron-down{
+          transform rotate(180deg)
+        }
+
+        &:hover .has-dropdown{
+          &::after {
+            display none !important
+          }
+        }
+      }
+
+      .dropdown-item {
+        font-size 1rem
+        margin 6px 0
+        height 16px
+
+        a {
+          padding 6px 20px
+          border-radius 20px
+          color var(--default-text-color)
+
+          &:hover {
+            color var(--second-text-color)
+            border 1px solid var(--default-text-color)
+          }
+
+
+          &.active {
+            border 1px solid var(--default-text-color)
+            color var(--second-text-color)
+          }
+        }
+      }
+
+      .sub-menu{
+        position relative
+        margin-top 8px
+        width 100%
+        text-align: center;
+        list-style: none;
+        padding 0 10px 
+        border-radius 18px
+        //float left
+      }
+    }
+  }
+
+
+  .window-mask {
+    position absolute
+    top 0
+    width 100%
+    height 100vh
+    background rgba(0, 0, 0, 0.4)
+    z-index $z-index-1
+    visibility hidden
+    opacity 0
+    transition-t("transform, opacity", "0, 0", "0.38, 0.38", "ease, ease")
+
+    .header-drawer-show & {
+      visibility visible
+      opacity 1
+    }
+  }
+
+}
+
+.header-drawer-show {
+  overflow hidden
+}
 
         </div>
 
@@ -510,54 +584,65 @@
                             
                         </div>
                         <div class="meta-info">
-                            <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="pc">2023-01-05 19:31:30</span>
-        <span class="mobile">2023-01-05 19:31</span>
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa-regular fa-folders"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/hexo/">hexo</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/hexo/">hexo</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
+                            .article-meta-info {
+  font-size 0.8rem
+  color var(--third-text-color)
 
-    
-    
-        <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-file-word"></i>&nbsp;<span>722 字</span>
-        </span>
-    
-    
-        <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 分钟</span>
-        </span>
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
+  .article-meta-item {
+    margin-right 10px
+
+    &:last-child {
+      margin-right 0
+    }
+  }
+
+  .article-date {
+
+    .mobile {
+      display none
+    }
+
+    +redefine-tablet() {
+      .pc {
+        display none
+      }
+
+      .mobile {
+        display inline
+      }
+    }
+
+  }
+
+
+  .article-tags, .article-categories {
+    display inline
+
+    ul, li {
+      display inline
+    }
+
+    a {
+      color var(--third-text-color)
+
+      &:hover {
+        color var(--primary-color)
+      }
+    }
+  }
+
+  .article-tags {
+    +redefine-tablet() {
+      display none
+    }
+  }
+
+  .article-min2read, .article-wordcount {
+    +redefine-mobile() {
+      display none
+    }
+  }
+}
 
                         </div>
                     </div>
@@ -585,7 +670,7 @@
 <li>Ctrl+Shift+A 录屏</li>
 </ol>
 <h2>可选的文章头</h2>
-<div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1. 文章置顶，数字越大越靠前--&gt;</span><br><span class="line">sticky: 999   </span><br><span class="line"></span><br><span class="line">&lt;!-- 2. 摘要 --&gt;</span><br><span class="line">excerpt: 这是文章摘要的内容</span><br><span class="line"></span><br><span class="line">&lt;!-- 3. 摘要截取，截取more注释前的文本作为这篇文章的摘要 --&gt;</span><br><span class="line">&lt;!-- 优先级低于excerpt --&gt;</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">margin: -28px -28px 20px -28px;</span><br><span class="line"></span><br><span class="line">&lt;!-- 4. 文章卡片缩略图 --&gt;</span><br><span class="line">thumbnail: https://evan.beee.top/img/wallhaven-wqery6-light.webp</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1. 文章置顶，数字越大越靠前--&gt;</span><br><span class="line">sticky: 999   </span><br><span class="line"></span><br><span class="line">&lt;!-- 2. 摘要 --&gt;</span><br><span class="line">excerpt: 这是文章摘要的内容</span><br><span class="line"></span><br><span class="line">&lt;!-- 3. 摘要截取，截取more注释前的文本作为这篇文章的摘要 --&gt;</span><br><span class="line">&lt;!-- 优先级低于excerpt --&gt;</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"> </span><br><span class="line">margin: -28px -28px 20px -28px;</span><br><span class="line"></span><br><span class="line">&lt;!-- 4. 文章卡片缩略图 --&gt;</span><br><span class="line">thumbnail: https://evan.beee.top/img/wallhaven-wqery6-light.webp</span><br></pre></td></tr></table></figure></div>
 <h2>文本</h2>
 <div class="highlight-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">psw</span>&gt;</span></span>隐藏文本<span class="language-xml"><span class="tag">&lt;/<span class="name">psw</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>键盘文本<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">mark</span>&gt;</span></span>高亮文本<span class="language-xml"><span class="tag">&lt;/<span class="name">mark</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>划线文本<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;nr&quot;</span>&gt;</span></span></span><br><span class="line">  红色笔记</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br></pre></td></tr></table></figure></div>
 <p><psw>隐藏文本</psw><br>
@@ -711,19 +796,49 @@
 
             
                 <div class="post-copyright-info">
-                    <div class="article-copyright-info-container">
-    <ul>
-        <li>本文标题：Markdown文章写作模板</li>
-        <li>本文作者：Sunday</li>
-        <li>创建时间：2023-01-05 19:31:30</li>
-        <li>
-            本文链接：https://sblog.wyun521.top/posts/203dfdcf.html
-        </li>
-        <li>
-            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
-        </li>
-    </ul>
-</div>
+                    .article-copyright-info-container {
+  font-family "Noto Sans SC", sans-serif;8
+  position relative
+  width 100%
+  box-sizing border-box
+  padding 10px 6px
+  font-size 1rem
+  background var(--second-background-color)
+  border-radius 14px
+
+  &::after {
+    position absolute
+    top 0
+    left 0
+    content ''
+    width 6px
+    height 100%
+    background var(--copyright-info-color)
+    border-radius 5px
+  }
+
+
+  ul {
+
+    margin-left 10px
+
+    li {
+      margin-bottom 5px
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+      color var(--default-text-color)
+
+      .license {
+        font-weight bold
+      }
+
+      &:last-child {
+        margin-bottom 0
+      }
+    }
+  }
+}
 
                 </div>
             
@@ -777,45 +892,45 @@
 
             
                 <div class="comment-container">
-                    <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fa-solid fa-comments">&nbsp;评论</i>
-    </div>
-    
+                    if (hexo-config('comment.enable') == true && hexo-config('comment.use') != "") {
+  if (hexo-config('comment.use') == "waline") {
+    @require "./waline.styl"
 
-        
-            
-    <div class="twikoo-container">
-        <script data-pjax
-                src="https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"
-        ></script>
-        <div id="twikoo-comment"></div>
-        <script data-pjax>
-            function loadTwikoo() {
-                twikoo.init({
-                    el: '#twikoo-comment',
-                    envId: 'https://twikoo.wyun521.top/',
-                    /*region: '',*/
-                });
-            }
+  } else if (hexo-config('comment.use') == "gitalk") {
+    @require "./gitalk.styl"
 
-            if ('true') {
-                const loadTwikooTimeout = setTimeout(() => {
-                    loadTwikoo();
-                    clearTimeout(loadTwikooTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadTwikoo);
-            }
-        </script>
-    </div>
+  } else if (hexo-config('comment.use') == "twikoo") {
+    @require "./twikoo.styl"
+  }
+}
 
+.comments-container {
+  display inline-block
+  margin-top $component-spacing-value
+  width 100%
 
-        
-        
-    
-</div>
+  #comment-anchor {
+    width 100%
+    height 10px
+  }
+
+  .comment-area-title {
+    width 100%
+    margin 10px 0
+    font-size 1.38rem
+    color var(--default-text-color)
+
+    i {
+      color var(--default-text-color)
+    }
+
+    +redefine-tablet() {
+      margin 5px 0
+      font-size 1.2rem
+    }
+  }
+
+}
 
                 </div>
             
@@ -823,12 +938,105 @@
 
         
             <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>目录</strong></div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">PicGo上传图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">QQ截图自定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">可选的文章头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">表格table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">Emoji</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">警告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">外挂标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%8F%A0%E6%A1%86folding"><span class="nav-number">10.1.</span> <span class="nav-text">折叠框folding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E9%80%89%E5%88%97%E8%A1%A8checkbox"><span class="nav-number">10.2.</span> <span class="nav-text">复选列表checkbox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%80%89%E5%88%97%E8%A1%A8radio"><span class="nav-number">10.3.</span> <span class="nav-text">单选列表radio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">12.</span> <span class="nav-text">Redefine指南</span></a></li></ol>
-    </div>
-</div>
+                .post-toc-wrap {
+  width 100%
+  font-size 0.92rem
+  box-sizing border-box
+  font-family "Noto Sans", sans-serif
+
+
+  
+  .post-toc {
+    
+    ol {
+      border-left 2px dotted var(--shadow-color-1)
+      list-style none
+      margin 0
+      padding 0 2px 12px 10px
+      text-align left
+
+      &:last-child {
+        padding-bottom 0
+      }
+
+      > ol {
+        padding-left 0
+      }
+
+      a {
+        transition-property all
+        transition()
+        
+      }
+    }
+
+
+    .nav-item {
+      line-height 2
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+      //word-wrap:break-word
+      font-size 0.9rem
+    }
+
+
+    .nav {
+      .nav-child {
+        display hexo-config('toc.expand_all') ? block : none
+      }
+
+      .active > .nav-child {
+        display block
+      }
+
+      .active-current > .nav-child {
+        display block
+
+        > .nav-item {
+          display block
+        }
+      }
+
+
+      .nav-number, .nav-text {
+        color var(--third-text-color)
+      }
+
+      .active > a {
+        .nav-number, .nav-text {
+          color var(--primary-color)
+          font-weight bold
+        }
+
+      }
+
+      .active-current {
+        .nav-number, .nav-text {
+          color var(--primary-color) !important
+          font-weight bold
+          transition none
+        }
+      }
+
+      .active-current > span {
+        &:first-child::before {
+          content " "
+          width 10px
+          height 1.7rem
+          margin auto 0
+          transform translate(-12px,0)
+          border-left 2px solid var(--primary-color)
+          position absolute
+          margin-right 4px
+          color var(--primary-color)
+        }
+      }
+    }
+  }
+}
+
+
             </div>
         
     </div>
@@ -844,185 +1052,435 @@
         </div>
 
         <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2023</span>
-              -
-            
-            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Sunday. 版权所有.</a>
-        </div>
-        
-            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                    <span id="busuanzi_container_site_uv">
-                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
-                    </span>
-                
-                
-                    <span id="busuanzi_container_site_pv">
-                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.5.2</a>
-        </div>
-        
-        
-        <script async data-pjax defer>
-            function odometer_init(){
-                    let el = document.getElementsByClassName('odometer');
-                    for (i = 0; i < el.length; i++) {
-                        od = new Odometer({
-                            el: el[i],
-                            format: '( ddd).dd',
-                            duration: 200
-                        });
-                    }
-            }
-            odometer_init();
-        </script>
-        <div id="start_time_div" style="display:none">
-            2023/01/04 16:45:14
-        </div>
-        
-            <div>
-                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
-            </div>
-        
-        
-            <div class="customize-info info-item">I wish you to become your own sun, no need to rely on who's light.⚽</div>
-        
+            .footer {
+  font-size 1rem
+  color var(--third-text-color)
 
-        
-            
-                
-        
-                
-        
-                <script defer src="/js/custom@1.0/sunday.js"></script>
-        
-                <script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script>
-        
-                <script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script>
-        
-                <script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script>
-        
-                <script defer src="/js/custom@1.0/pop.js"></script>
-        
-                <script async src="/js/custom@1.0/title.js"></script>
-        
-        
-    </div>  
-</footer>
+
+  a {
+    color var(--third-text-color)
+
+
+    &:hover {
+      color var(--primary-color)
+
+    }
+  }
+
+  .info-container {
+    padding-bottom 10px
+    text-align center
+  }
+
+  .info-item {
+    margin 5px 0
+  }
+
+  .icon-animate {
+    animation icon-animate 1.2s ease-in-out infinite
+  }
+
+}
+
+
+
+
         </div>
     </div>
 
     
         <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
+            $li-border-radius = 10px
+$li-margin-bottom = 12px
+$post-tool-button-width = 42px
 
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fa-regular fa-comments"></i>
-            </li>
-        
-    </ul>
-</div>
+.post-tools-container {
+
+  .tools-list {
+
+    li {
+      cursor pointer
+      width $post-tool-button-width
+      height $post-tool-button-width
+      border-radius $li-border-radius
+      font-size 1.2rem
+      display flex
+      align-items center
+      justify-content center
+      margin-bottom $li-margin-bottom
+      background var(--background-color)
+      color var(--default-text-color)
+
+      i {
+        color var(--default-text-color)
+      }
+
+      &:hover {
+        background var(--primary-color)
+        color var(--background-color)
+
+        i {
+          color var(--background-color)
+        }
+      }
+
+
+      &:last-child {
+        margin-bottom 0
+      }
+
+
+      hover-style(true, 1.06, 1.06)
+
+      &.page-aside-toggle {
+        display none
+
+        +redefine-tablet() {
+          display none !important
+        }
+      }
+    }
+  }
+
+}
 
         </div>
     
 
     <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-        </li>
+        $tools-item-width = 42px
+$tools-item-font-size = 1.3rem
+$tools-item-border-radius = 12px
 
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fa-solid fa-magnifying-glass-minus"></i>
-        </li>
 
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fa-solid fa-left-right"></i>
-        </li>
+.side-tools-container {
+  position relative
+  right 30px
 
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fa-solid fa-moon"></i>
-        </li>
+  .tools-item {
+    width $tools-item-width
+    height $tools-item-width
+    font-size $tools-item-font-size
+    margin-bottom 3px
+    cursor pointer
+    border-right none
+    border-radius $tools-item-border-radius
+    box-shadow var(--redefine-box-shadow)
+    color var(--default-text-color)
+    background var(--background-color)
 
-        <!-- rss -->
-        
+    i {
+      color var(--default-text-color)
+    }
 
-        
+    &:hover {
+      color var(--background-color)
+      background var(--primary-color)
+      box-shadow var(--redefine-box-shadow)
 
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fa-solid fa-arrow-down"></i>
-        </li>
-    </ul>
+      i {
+        color var(--background-color)
+      }
+    }
 
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fa-solid fa-cog fa-spin"></i>
-        </li>
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
-</div>
+    +redefine-tablet() {
+      width $tools-item-width * 0.9
+      height $tools-item-width * 0.9
+      font-size $tools-item-font-size * 0.9
+      margin-bottom 2px
+    }
+
+    &.rss {
+
+      a {
+        border-radius $tools-item-border-radius
+        width 100%
+        height 100%
+
+        &:hover {
+          color var(--background-color)
+          background var(--primary-color)
+          box-shadow var(--redefine-box-shadow)
+        }
+      }
+    }
+  }
+
+
+  .side-tools-list {
+    opacity 0
+    transform translateX(100%)
+    transition-t("transform, opacity", "0, 0", "0.2, 0.2", "ease, ease")
+
+    .tool-expand-width {
+      +redefine-tablet() {
+        display none
+      }
+    }
+
+
+    &.show {
+      opacity 1
+      transform translateX(0)
+    }
+  }
+
+
+  .exposed-tools-list {
+
+    if (hexo-config('style.scroll.percent.enable') == true) {
+      .tool-scroll-to-top {
+        display none
+
+        &.show {
+          display flex
+        }
+
+        &:hover {
+
+          .percent {
+            display none
+          }
+
+          .arrow-up {
+            display flex
+          }
+
+        }
+
+        .arrow-up {
+          display none
+        }
+
+        .percent {
+          display flex
+          font-size 1rem
+        }
+
+      }
+
+    }
+  }
+}
 
     </div>
 
-    <div class="image-viewer-container">
-    <img src="">
-</div>
+    .image-viewer-container {
+  position fixed
+  left 0
+  top 0
+  width 100%
+  height 100%
+  display flex
+  align-items center
+  justify-content center
+  background rgba(0, 0, 0, 0)
+  visibility hidden
+  z-index $z-index-8
+  padding 6%
+  box-sizing border-box
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease")
+
+  &.active {
+    background rgba(0, 0, 0, 0.5)
+    visibility visible
+
+    img {
+      cursor zoom-out
+      transform scale(1)
+      padding 2px
+      background var(--background-color)
+    }
+  }
+
+  img {
+    max-width 100%
+    max-height 100%
+    transform scale(0)
+    transition-t("transform", "0", "0.3", "ease")
+  }
+}
+
+
 
 
     
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fa-solid fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fa-solid fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
+        $icon-size = 1.2rem
+
+.search-pop-overlay {
+  position fixed
+  display flex
+  height 100%
+  width 100%
+  left 0
+  top 0
+  background rgba(0, 0, 0, 0)
+  visibility hidden
+  z-index $z-index-8
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease")
+
+  &.active {
+    visibility visible
+    background rgba(0, 0, 0, 0.35)
+
+    .search-popup {
+      transform scale(1)
+    }
+
+  }
+
+
+  .search-popup {
+    background var(--background-color)
+    border-radius 5px
+    height 80%
+    width 70%
+    margin auto
+    transform scale(0)
+    z-index $z-index-6
+    transition-t("transform", "0", "0.3", "ease")
+
+    +redefine-tablet() {
+      width 80%
+    }
+
+    +redefine-mobile() {
+      width 90%
+    }
+
+    .search-header {
+      background var(--fourth-text-color)
+      border-top-left-radius 2px
+      border-top-right-radius 2px
+      display flex
+      padding 10px
+
+      .search-input-field-pre, .popup-btn-close {
+        font-size $icon-size
+        padding 0 10px
+        display flex
+        align-items center
+      }
+
+      .search-input-field-pre {
+        cursor pointer
+        color var(--third-text-color)
+      }
+
+      .popup-btn-close {
+        color var(--default-text-color)
+      }
+
+
+      .search-input-container {
+
+        flex-grow 1
+        padding 2px
+
+        .search-input {
+          background transparent
+          border 0
+          outline 0
+          width 100%
+          font-size 1.2rem
+          color var(--default-text-color)
+
+          &::-webkit-search-cancel-button {
+            display none
+          }
+        }
+
+
+      }
+
+
+      .popup-btn-close {
+        cursor pointer
+
+        &:hover .fas, far, fab {
+          color var(--first-text-color)
+        }
+      }
+
+    }
+
+
+    #search-result {
+      display flex
+      height calc(100% - 55px)
+      overflow auto
+      padding 5px 25px
+
+      .search-result-list {
+        width 100%
+        height 100%
+        font-size 1rem
+
+        li {
+          border-bottom 1px dashed var(--border-color)
+          padding 10px 0
+          margin 10px 0
+          box-sizing border-box
+
+          &:last-child {
+            border-bottom none
+          }
+
+
+          .search-result-title {
+            position relative
+            font-weight bold
+            margin-bottom 10px
+            padding-left 16px
+            display flex
+            align-items center
+
+            &::after {
+              content ''
+              position absolute
+              width 5px
+              height 5px
+              border-radius 50%
+              top 50%
+              transform translateY(-50%)
+              left 0
+              background var(--default-text-color)
+            }
+          }
+
+
+          .search-result {
+            line-height 2rem
+            margin 0
+            padding-left 16px
+            word-wrap break-word
+          }
+
+          a {
+            &:hover {
+              color var(--default-text-color)
+            }
+          }
+
+          .search-keyword {
+            border-bottom 1px dashed var(--primary-color)
+            color var(--primary-color)
+            font-weight bold
+          }
+
+        }
+      }
+
+
+      #no-result {
+        color var(--third-text-color)
+        margin auto
+      }
+
+    }
+  }
+}
+
 
     
 

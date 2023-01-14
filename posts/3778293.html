@@ -51,17 +51,80 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
+.progress-bar-container {
+  position fixed
+  top 0
+  left 0
+  width 100%
+  z-index $z-index-9
 
-    
-        <span class="pjax-progress-bar"></span>
-        <span class="pjax-progress-icon">
-            <i class="fa-solid fa-circle-notch fa-spin"></i>
-        </span>
-    
-</div>
+  if (hexo-config('pjax.enable') == true) {
 
+    .pjax-progress-bar {
+      position absolute
+      top 0
+      left 0
+      height 2px
+      width 0
+      background var(--pjax-progress-bar-color)
+      visibility hidden
+      opacity 0
+      z-index $z-index-8
+      transition-t("width", "0", "0.1", "linear")
+
+
+      &.show {
+        opacity 1
+        visibility visible
+      }
+    }
+
+
+    .pjax-progress-icon {
+      position absolute
+      top 0
+      right 0
+      z-index $z-index-8
+      display flex
+      align-items center
+      justify-content center
+      padding 7px 6px 0 0
+      visibility hidden
+      font-size 1.1rem
+      color var(--default-text-color)
+
+      +redefine-tablet() {
+        padding 6px 5px 0 0
+        font-size 1rem
+      }
+
+      &.show {
+        visibility visible
+      }
+    }
+
+  }
+
+  if (hexo-config('style.scroll.progress_bar.enable') == true) {
+
+    .scroll-progress-bar {
+      position absolute
+      top 0
+      left 0
+      width 0
+      height $scroll-progress-bar-height
+      visibility hidden
+      z-index $z-index-7
+      background var(--primary-color)
+      transition-t("width", "0", "0.1", "linear")
+
+      &.hide {
+        display none !important
+      }
+    }
+
+  }
+}
 
 <main class="page-container">
 
@@ -70,418 +133,429 @@
     <div class="page-main-content">
 
         <div class="page-main-content-top">
-            <header class="header-wrapper">
-    
-    <div class="header-content">
-        <div class="left">
-            
-                <a class="logo-image" href="/">
-                    <img src="https://mysource-hexo.wyun521.top/img/cover/logo.png">
-                </a>
-            
-            <a class="logo-title" href="/">
-                星期天
-            </a>
-        </div>
+            $logo-title-font-size = 2rem
+$pc-search-icon-font-size = 1.5rem
+$menu-bar-line-height = 2.5px
+$logo-image-box-width = 46px
 
-        <div class="right">
-            <!-- PC -->
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="" 
-                                    href="/" >
-                                    
-                                        
-                                            <i class="fa-regular fa-house"></i>
-                                        
-                                        首页
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-book"></i>
-                                        
-                                        文章&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/categories">分类
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/tags">标签
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/archives">归档
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/random.html">随便逛逛
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-mug-hot"></i>
-                                        
-                                        生活&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/music">音乐
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/photos">相册
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a target="_blank" rel="noopener" href="https://hin.cool/c/dd.html">滑碟
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-user"></i>
-                                        
-                                        社交&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/friends">朋友圈
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/links">友链
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-gear"></i>
-                                        
-                                        网站&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/admin">后台管理
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a target="_blank" rel="noopener" href="https://nav.wyun521.top/">网址导航
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/statistics">文章统计
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/record">建站日志
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            <li class="menu-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown" 
-                                    href="javascript:void(0);">
-                                    
-                                        
-                                            <i class="fa-regular fa-bars"></i>
-                                        
-                                        其他&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                    
-                                        <li>
-                                        <a href="/about">关于
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/bb">哔哔
-                                        </a>
-                                        </li>
-                                    
-                                        <li>
-                                        <a href="/sbase">秘密基地
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>
-                                
-                            </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <!-- Mobile -->
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+.header-wrapper {
+  font-family "Optima Medium", sans-serif
+  width 100%
+  height 100%
+  box-sizing border-box
+  display flex
+  align-items center
+  justify-content center
+  background $nav-color-bg
+  -webkit-backdrop-filter blur(10px)
+  backdrop-filter blur(10px)
+  padding-top $scroll-progress-bar-height
 
-    <!-- Mobile drawer -->
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
+  hover-style(false, 0, 0)
+
+  .header-content {
+    position relative
+    height 100%
+    width $main-content-width
+    max-width $content-max-width
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    z-index $z-index-5
+
+
+    &.has-first-screen {
+      max-width $content-max-width * 1.2
+    }
+
+    +redefine-tablet() {
+      width $main-content-width-tablet
+    }
+
+    +redefine-mobile() {
+      width $main-content-width-mobile
+    }
+
+    .left {
+      display flex
+      align-items center
+      transition-t("transform", "0", "0.2", "linear")
+
+      .header-shrink & {
+        transform scale(0.72)
+        transform-origin left
+      }
+
+
+      if (hexo-config('base_info.logo_img') && hexo-config('base_info.logo_img') != '') {
+        .logo-image {
+          width $logo-image-box-width
+          height $logo-image-box-width
+          margin-right 8px
+
+
+          +redefine-tablet() {
+            width $logo-image-box-width * 0.9
+            height $logo-image-box-width * 0.9
+          }
+
+          +redefine-mobile() {
+            width $logo-image-box-width * 0.8
+            height $logo-image-box-width * 0.8
+          }
+
+          img {
+            border-radius 6px
+            width 100%
+          }
+        }
+
+      }
+
+      .logo-title {
+        font-size $logo-title-font-size
+        font-family "Optima Bold", sans-serif
+        //letter-spacing 1px
+        line-height 1
+        color var(--first-text-color)
+
+        +redefine-tablet() {
+          font-size $logo-title-font-size * 0.9
+        }
+
+        +redefine-mobile() {
+          font-size $logo-title-font-size * 0.8
+        }
+      }
+
+    }
+
+
+    .right {
+
+      .pc {
+
+        .menu-list {
+          display flex
+          align-items center
+          
+
+          +redefine-tablet() {
+            display none
+          }
+
+
+          .menu-item {
+            float left
+            padding 5px
+            position relative
+            margin-left 30px
+            font-size 1rem
+            cursor pointer
+            color var(--default-text-color)
+
+            &:first-child {
+              margin-left 0
+            }
+
+            a .fa-chevron-down{
+              transform rotate(0deg)
+              transition transform 0.3s ease
+            }
+
+            &:hover a .fa-chevron-down{
+              transform rotate(180deg)
+            }
+
+            &:hover .has-dropdown{
+              &::after {
+                display none !important
+              }
+            }
+
+            &:hover a, .active {
+              &::after {
+                content ''
+                position absolute
+                bottom -5px
+                left 50%
+                width 100%
+                height 2px
+                transform translateX(-50%)
+                background var(--primary-color)
+                transition-t("transform, bottom", "0, 0", "0.2, 0.2", "linear, linear")
+
+                .header-shrink & {
+                  bottom -($header-shrink-height / 2 - 17)
+                }
+              }
+            }
             
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="" 
-                        href="/" >
-                             
-                                
-                                    <i class="fa-regular fa-house"></i>
-                                
-                                首页
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                    
-            
-                
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-book"></i>
-                                
-                                文章&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/categories">分类</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/tags">标签</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/archives">归档</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/random.html">随便逛逛</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-mug-hot"></i>
-                                
-                                生活&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/music">音乐</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/photos">相册</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://hin.cool/c/dd.html">滑碟</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-user"></i>
-                                
-                                社交&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/friends">朋友圈</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/links">友链</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-gear"></i>
-                                
-                                网站&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/admin">后台管理</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://nav.wyun521.top/">网址导航</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/statistics">文章统计</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/record">建站日志</a>
-                            </li>
-                        
-                    
-            
-                
-                    <li class="drawer-menu-item flex-center">
-                        <a class="has-dropdown" 
-                        href="javascript:void(0);">
-                            
-                                
-                                    <i class="fa-regular fa-bars"></i>
-                                
-                                其他&nbsp;<i class="fa-solid fa-chevron-down"></i>
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                              
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/about">关于</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/bb">哔哔</a>
-                            </li>
-                        
-                            <li class="dropdown-item flex-center">
-                                <a class="dropdown-item" href="/sbase">秘密基地</a>
-                            </li>
-                        
-                    
             
 
-        </ul>
-    </div>
+            &.search {
+              font-size $pc-search-icon-font-size
+              margin-left 26px
 
-    <div class="window-mask"></div>
+              i {
+                color var(--default-text-color)
+              }
 
-</header>
+            }
 
+            .sub-menu{
+              position absolute;
+              right auto
+              left 50%
+              -webkit-transform translate(-50%, 0)
+              -o-transform translate(-50%, 0)
+              transform translate(-50%, 0)
+              margin-top 8px
+              width auto
+              text-align: center;
+              list-style:none;
+              padding 0 10px 
+              border-radius 18px
+              //visibility hidden
+              
+
+              max-height 0px
+              overflow hidden
+              transition-t("all", "0", "0.2", "linear") 
+
+              li a {
+                white-space nowrap
+                color var(--default-text-color)
+                font-size 1rem
+                padding 3px 15px
+                display block
+                text-align center
+                border-radius 8px
+                transition-t("all", "0", "0.2", "linear")
+
+                &:hover {
+                  color var(--primary-color)
+                  background-color var(--second-background-color)
+                }
+              }
+            }
+
+          }
+
+        }
+
+        .menu-list .menu-item:hover .sub-menu{
+          //visibility visible
+          max-height 500px
+          transition-t("all", "0", "0.2", "ease")
+          redefine-container(false, 0, 0, 10px, 5px)
+        }
+        
+      }
+
+
+      .mobile {
+        display flex
+        justify-content space-between
+        align-items center
+
+        .icon-item {
+          display none
+          position relative
+          cursor pointer
+          font-size 18px
+          margin-left 12px
+          width 20px
+          height 20px
+          color var(--default-text-color)
+
+          i {
+            color var(--default-text-color)
+          }
+
+          &:first-child {
+            margin-left 0
+          }
+
+          +redefine-tablet() {
+            display flex
+            justify-content center
+            align-items center
+          }
+        }
+
+        .menu-bar {
+
+          .menu-bar-middle {
+            width 18px
+            height $menu-bar-line-height
+            position relative
+            background var(--default-text-color)
+
+            .header-drawer-show & {
+              background transparent
+            }
+
+
+            &::before, &::after {
+              content ''
+              position absolute
+              left 0
+              width 100%
+              height $menu-bar-line-height
+              background var(--default-text-color)
+              transition-t("transform", "0", "0.38", "ease")
+            }
+
+
+            &::before {
+              top -6px
+
+              .header-drawer-show & {
+                transform translateY(6px) rotate(45deg)
+              }
+            }
+
+
+            &::after {
+              bottom -6px
+
+              .header-drawer-show & {
+                transform translateY(-6px) rotate(-45deg)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .header-drawer {
+    width 100%
+    padding $header-height 0 20px 0
+    position absolute
+    top 0
+    left 0
+    transform scaleY(0)
+    transform-origin top
+    z-index $z-index-2
+    background var(--background-color)
+    transition-t("transform", "0", "0.38", "ease")
+
+    .header-drawer-show & {
+      transform scaleY(1)
+    }
+
+    .drawer-menu-list {
+      display flex
+      flex-direction column
+      justify-content flex-start
+      align-items center
+
+      .drawer-menu-item {
+        font-family: "Optima Bold", sans-serif
+        font-size 1rem
+        margin 6px 0
+        height 32px
+
+        a {
+          padding 6px 20px
+          border-radius 20px
+          color var(--default-text-color)
+
+          &:hover {
+            color var(--second-text-color)
+            border 1px solid var(--default-text-color)
+          }
+
+
+          &.active {
+            border 1px solid var(--default-text-color)
+            color var(--second-text-color)
+          }
+        }
+
+        .has-dropdown {
+          font-family: "Optima Bold", sans-serif
+        }
+
+        a .fa-chevron-down{
+          transform rotate(0deg)
+          transition transform 0.3s ease
+        }
+
+        &:hover a .fa-chevron-down{
+          transform rotate(180deg)
+        }
+
+        &:hover .has-dropdown{
+          &::after {
+            display none !important
+          }
+        }
+      }
+
+      .dropdown-item {
+        font-size 1rem
+        margin 6px 0
+        height 16px
+
+        a {
+          padding 6px 20px
+          border-radius 20px
+          color var(--default-text-color)
+
+          &:hover {
+            color var(--second-text-color)
+            border 1px solid var(--default-text-color)
+          }
+
+
+          &.active {
+            border 1px solid var(--default-text-color)
+            color var(--second-text-color)
+          }
+        }
+      }
+
+      .sub-menu{
+        position relative
+        margin-top 8px
+        width 100%
+        text-align: center;
+        list-style: none;
+        padding 0 10px 
+        border-radius 18px
+        //float left
+      }
+    }
+  }
+
+
+  .window-mask {
+    position absolute
+    top 0
+    width 100%
+    height 100vh
+    background rgba(0, 0, 0, 0.4)
+    z-index $z-index-1
+    visibility hidden
+    opacity 0
+    transition-t("transform, opacity", "0, 0", "0.38, 0.38", "ease, ease")
+
+    .header-drawer-show & {
+      visibility visible
+      opacity 1
+    }
+  }
+
+}
+
+.header-drawer-show {
+  overflow hidden
+}
 
         </div>
 
@@ -510,54 +584,65 @@
                             
                         </div>
                         <div class="meta-info">
-                            <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="pc">2023-01-08 15:07:41</span>
-        <span class="mobile">2023-01-08 15:07</span>
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa-regular fa-folders"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/Java/">Java</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Java/">Java</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
+                            .article-meta-info {
+  font-size 0.8rem
+  color var(--third-text-color)
 
-    
-    
-        <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-file-word"></i>&nbsp;<span>5.2k 字</span>
-        </span>
-    
-    
-        <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>21 分钟</span>
-        </span>
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
+  .article-meta-item {
+    margin-right 10px
+
+    &:last-child {
+      margin-right 0
+    }
+  }
+
+  .article-date {
+
+    .mobile {
+      display none
+    }
+
+    +redefine-tablet() {
+      .pc {
+        display none
+      }
+
+      .mobile {
+        display inline
+      }
+    }
+
+  }
+
+
+  .article-tags, .article-categories {
+    display inline
+
+    ul, li {
+      display inline
+    }
+
+    a {
+      color var(--third-text-color)
+
+      &:hover {
+        color var(--primary-color)
+      }
+    }
+  }
+
+  .article-tags {
+    +redefine-tablet() {
+      display none
+    }
+  }
+
+  .article-min2read, .article-wordcount {
+    +redefine-mobile() {
+      display none
+    }
+  }
+}
 
                         </div>
                     </div>
@@ -820,7 +905,7 @@
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SynchronizedTest2</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">            <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                    <span class="type">SynchronizedTest2</span> <span class="variable">synchronizedTest2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SynchronizedTest2</span>();</span><br><span class="line">                    synchronizedTest2.test();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            thread.start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;start...&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.currentThread().sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;end...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果仍为：</span></span><br><span class="line"><span class="comment">// start...</span></span><br><span class="line"><span class="comment">// start...</span></span><br><span class="line"><span class="comment">// start...</span></span><br><span class="line"><span class="comment">// end...</span></span><br><span class="line"><span class="comment">// end...</span></span><br><span class="line"><span class="comment">// end...</span></span><br></pre></td></tr></table></figure></div>
 <p>test()实例方法的synchronized是独立的，不会对其他实例造成影响。</p>
 <p>🤔在统计网站访问量的例子中，我们是给实例方法run()上的锁，为何也实现了线程同步呢？这岂不是矛盾了吗？</p>
-<p>其实，<code>线程同步</code>的本质是锁定多个线程所共享的资源。<mark>如果该资源在类中唯一，就可以实现线程同步。</mark></p>
+<p>其实，<code>线程同步</code>的本质是锁定多个线程所共享的资源。<mark>如果该资源在类中唯一，不会改变，就可以实现线程同步。</mark></p>
 <p>在统计网站访问量的例子中，run()方法操作的数据num是用static修饰的类变量，synchronized修饰的其实是num类变量</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 统计网站访问量</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Account</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span>  <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        num++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.currentThread().sleep(<span class="number">1</span>);    <span class="comment">//线程休眠，可能带来数据错误</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">&quot;是当前的第&quot;</span>+num+<span class="string">&quot;位访问&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果</span></span><br><span class="line"><span class="comment">// 张三是当前的第1位访问</span></span><br><span class="line"><span class="comment">// 李四是当前的第2位访问</span></span><br></pre></td></tr></table></figure></div>
 <p><strong>如何判断线程是否同步？</strong></p>
@@ -865,6 +950,11 @@
 <p>完美解决线程安全：</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> SingletonDemo2 singletonDemo;</span><br></pre></td></tr></table></figure></div>
 <p><code>volatile</code>：使主内存中的数据对线程可见。当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值。</p>
+<p><strong>使用lambda表达式实现Runnable接口简化开发（JDK1.8以上）</strong></p>
+<p>因为<code>Runnable</code>是一个<code>函数式接口</code>，我们可以直接使用lambda表达式去实现它，简化开发</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;===MyThread===&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure></div>
+<p>甚至，我们可以直接写作</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123; <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++) System.out.println(<span class="string">&quot;===MyThread===&quot;</span>); &#125;).start();</span><br></pre></td></tr></table></figure></div>
 <h3 id="死锁">死锁</h3>
 <p>线程同步（不能争抢synchronized资源）可能带来死锁的问题。两个线程都需要两个同样资源，但都只拿到一个，等待对方执行完成，但是它们都无法继续执行。</p>
 <p><img  
@@ -876,24 +966,198 @@
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.资源类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Resources</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.模拟两个线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//线程号</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">int</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//static修饰保证资源在MyRunnable中唯一，锁是有效的</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Resources</span> <span class="variable">r1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Resources</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Resources</span> <span class="variable">r2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Resources</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">1</span>)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;拿到了一个资源，正在等待另一个资源&quot;</span>);</span><br><span class="line">            <span class="keyword">synchronized</span> (r1)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">//这里是为了保证另一个线程可以获得其中一个资源</span></span><br><span class="line">                    Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (r2)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread().getName()+<span class="string">&quot;拿到了所有资源，可以继续执行&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">2</span>)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;拿到了一个资源，正在等待另一个资源&quot;</span>);</span><br><span class="line">            <span class="keyword">synchronized</span> (r2)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">//这里是为了保证另一个线程可以获得其中一个资源</span></span><br><span class="line">                    Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (r1)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread().getName()+<span class="string">&quot;拿到了所有资源，可以继续执行&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 启动这两个线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ReadLockTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">MyRunnable</span> <span class="variable">myRunnable1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line">        myRunnable1.num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">MyRunnable</span> <span class="variable">myRunnable2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line">        myRunnable2.num = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable1,<span class="string">&quot;张三&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable2,<span class="string">&quot;李四&quot;</span>).start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果</span></span><br><span class="line"><span class="comment">// 张三拿到了一个资源，正在等待另一个资源</span></span><br><span class="line"><span class="comment">// 李四拿到了一个资源，正在等待另一个资源</span></span><br><span class="line"><span class="comment">// =====发生死锁，程序仍会一直运行下去=====</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 <p>想要解除死锁，可以不让多个线程并发访问同一资源。一个线程执行完毕，另一个线程才可以运行</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable1,<span class="string">&quot;张三&quot;</span>).start();</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//确保线程1有足够的时间执行完毕，释放两个资源，解除死锁</span></span><br><span class="line">    Thread.sleep(<span class="number">2000</span>); </span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable2,<span class="string">&quot;李四&quot;</span>).start();</span><br></pre></td></tr></table></figure></div>
+<p><strong>生产者消费者模式</strong></p>
+<p>Object类提供了wait()方法和notify()方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wait()</td>
+<td>访问当前资源的线程暂停执行</td>
+</tr>
+<tr>
+<td>notify()</td>
+<td>唤醒一个线程</td>
+</tr>
+</tbody>
+</table>
+<p><strong>多线程并发买票</strong></p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestSale</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Ticket</span> <span class="variable">ticket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Ticket</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">30</span>; i++) &#123;</span><br><span class="line">                ticket.sale();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;窗口A&quot;</span>).start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">30</span>; i++) &#123;</span><br><span class="line">                ticket.sale();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;窗口B&quot;</span>).start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Ticket</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Integer</span> <span class="variable">saleNum</span> <span class="operator">=</span> <span class="number">0</span>;        <span class="comment">//卖出的票数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Integer</span> <span class="variable">lastNum</span> <span class="operator">=</span> <span class="number">30</span>;      <span class="comment">//剩余票数、总票数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">sale</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lastNum &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            lastNum--;</span><br><span class="line">            saleNum++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TimeUnit.MILLISECONDS.sleep(<span class="number">500</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (lastNum &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;卖出了第&quot;</span> + saleNum + <span class="string">&quot;张票，剩余票数&quot;</span> + lastNum);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;卖出了第&quot;</span> + saleNum + <span class="string">&quot;张票，所有票都卖完了！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 窗口A卖出了第27张票，剩余票数3</span></span><br><span class="line"><span class="comment">// 窗口A卖出了第28张票，剩余票数2</span></span><br><span class="line"><span class="comment">// 窗口B卖出了第29张票，剩余票数1</span></span><br><span class="line"><span class="comment">// 窗口B卖出了第30张票，所有票都卖完了！</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="注意点">注意点</h3>
+<p>Java程序默认的线程数有两个：<code>main()主线程</code>和<code>GC垃圾回收器</code></p>
+<p>Java本身是无法开启线程的，start()方法需要调用Java本地方法start0()（使用C++编写的动态函数库）去操作计算机底层开启一个线程</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230114133103.png"
+                      alt="20230114133103"
+                ></p>
+<h2>Java并发编程</h2>
+<p>并发是为了在硬件一定的条件下，充分利用计算机资源</p>
+<h3 id="什么是高并发">什么是高并发</h3>
+<p><code>高并发</code>是指我们设计的程序，可以支持海量的任务在同一时间段内交替执行。或者说在同一时间段内处理很多的任务</p>
+<p>高并发的标准：</p>
+<ol>
+<li>QPS：每秒响应的HTTP请求数量</li>
+<li>吞吐量：单位时间内处理的请求数，由QPS和并发数来决定</li>
+<li>平均响应时间：系统对一个请求做出响应的平均时间</li>
+<li>并发用户数：最多同时承载<mark>正常使用</mark>系统的用户数</li>
+</ol>
+<p>QPS = 并发数/平均响应时间</p>
+<h3 id="如何实现高并发">如何实现高并发</h3>
+<p>互联网分布式系统架构设计，提高系统并发能力的两种方式：垂直扩展与水平扩展</p>
+<p><code>垂直扩展</code>：提升<code>单机</code>处理能力（提升计算机的硬件设备，增加CPU核数，升级网卡，升级内存等）;提升<code>单机</code>的架构性能（使用Cache缓存，使用异步请求增加单服务吞吐量，使用NoSQL提升数据库访问能力）</p>
+<p><code>水平扩展</code>：通过<code>增加机器数量</code>来提升效率</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230114131813.png"
+                      alt="20230114131813"
+                ></p>
+<p><strong>集群和分布式（水平扩展）</strong><br>
+<code>集群</code>：多个人做同一件事情。（一个厨师搞不定，多雇几个厨师一起炒菜）<br>
+<code>分布式</code>：一件事情拆分成多个步骤，由不同的人去完成。（一个厨师搞不定，给厨师雇几个助手，厨师只管炒菜，把洗菜和切菜交给助手去完成）</p>
+<p><strong>Nginx反向代理（代理服务器）（集群方式）</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230112210530.png"
+                      alt="20230112210530"
+                ></p>
+<h3 id="JUC">JUC</h3>
+<p><code>JUC（java.util.concurrent）</code>是JDK中专门用来处理<code>Java并发编程</code>的工具包</p>
+<p><strong>Callable+FutureTask实现多线程</strong></p>
+<p>在java.util.concurrent中提供了Callable接口和FutureTask类（Runnable的实现类），用于实现多线程的并发执行</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230114134835.png"
+                      alt="20230114134835"
+                ></p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestCallable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        FutureTask&lt;String&gt; futureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;String&gt;(<span class="keyword">new</span> <span class="title class_">MyCallable</span>());</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask);</span><br><span class="line">        thread.start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> futureTask.get();    <span class="comment">//获取返回值</span></span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyCallable</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;callable is running...&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;返回了一个字符串&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//class MyRunnable implements Runnable &#123;</span></span><br><span class="line"><span class="comment">//    @Override</span></span><br><span class="line"><span class="comment">//    public void run() &#123;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>Callable接口与Runnable接口的区别</strong></p>
+<ol>
+<li>call()方法有返回值，run()方法没有</li>
+<li>call()方法抛出一个异常，run()方法没有</li>
+<li>Callable实现类不能直接放到Thread中，需要借助Runnable的实现类FutureTask</li>
+</ol>
+<p><strong>sleep()和wait()的区别</strong><br>
+sleep()是让当前线程休眠；wait()是让访问当前对象或资源的那个线程休眠，同时释放锁</p>
+<p><strong>TimeUnit实现线程休眠</strong></p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//休眠2秒</span></span><br><span class="line">    TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><strong>ReentrantLock实现线程同步</strong></p>
+<p>使用synchronized关键字可以实现线程同步，还有一种方式也可以实现线程同步。</p>
+<p><code>Lock</code>是一个接口，也可以实现线程的同步。<code>ReentrantLock（可重用锁）</code>是Lock最常用的一个实现类</p>
+<p>回顾统计网站访问量的例子</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestAccount</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Account</span> <span class="variable">account</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Account</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(account,<span class="string">&quot;线程A&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(account,<span class="string">&quot;线程B&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Account</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        num++;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">&quot;是当前的第&quot;</span>+num+<span class="string">&quot;位访客&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>使用Lock接口代替synchronized关键字实现线程同步:</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestAccount2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Account</span> <span class="variable">account</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Account</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(account,<span class="string">&quot;线程A&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(account,<span class="string">&quot;线程B&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Account2</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Lock</span> <span class="variable">mylock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();      <span class="comment">//声明一个可重用锁</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        mylock.lock();  <span class="comment">//上锁</span></span><br><span class="line">        num++;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">&quot;是当前的第&quot;</span>+num+<span class="string">&quot;位访客&quot;</span>);</span><br><span class="line">        mylock.unlock();    <span class="comment">//上锁后一定记得要释放锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果</span></span><br><span class="line"><span class="comment">// 线程A是当前的第1位访客</span></span><br><span class="line"><span class="comment">// 线程B是当前的第2位访客</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>ReentrantLock的高级用法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lock()</td>
+<td>用于上锁</td>
+</tr>
+<tr>
+<td>lockInterruptibly()</td>
+<td>可中断的锁</td>
+</tr>
+<tr>
+<td>unlock()</td>
+<td>用于释放锁，Lock不会自动释放锁</td>
+</tr>
+<tr>
+<td>tryLock(long time,TimeUnit unit)</td>
+<td>让当前线程在指定时间内尝试去获得锁，返回是否能获得锁</td>
+</tr>
+<tr>
+<td>isHeldByCurrentThread()</td>
+<td>判断锁是否被当前线程占用</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>tryLock()让当前线程尝试获取锁：</li>
+</ol>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTryLock</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">TryLock</span> <span class="variable">tryLock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TryLock</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            tryLock.getLock();</span><br><span class="line">        &#125;,<span class="string">&quot;线程A&quot;</span>).start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            tryLock.getLock();</span><br><span class="line">        &#125;,<span class="string">&quot;线程B&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TryLock</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">ReentrantLock</span> <span class="variable">mylock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getLock</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (mylock.tryLock(<span class="number">3</span>, TimeUnit.SECONDS))&#123;       <span class="comment">//让当前线程在3秒钟内尝试获得锁，拿到锁后休眠5秒（仍在占用锁）</span></span><br><span class="line">                System.out.println(Thread.currentThread().getName()+<span class="string">&quot;拿到了锁&quot;</span>);</span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">5</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName()+<span class="string">&quot;在指定时间内拿不到锁&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (mylock.isHeldByCurrentThread())&#123;    <span class="comment">//如果锁被当前线程占有,就释放锁</span></span><br><span class="line">                mylock.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li><code>ReentrantLock（可重用锁）</code>可以多次调用lock()方法重复上锁，但是相对应的必须重复调用unlock()方法释放所有锁。<code>ReentrantLock（可重用锁）</code>是可中断的，等待线程在等待获取锁的过程中可以主动终止</li>
+</ol>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestAccount3</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Account3</span> <span class="variable">account3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Account3</span>();</span><br><span class="line">        <span class="comment">// new Thread(account3,&quot;线程A&quot;).start();</span></span><br><span class="line">        <span class="comment">// new Thread(account3,&quot;线程B&quot;).start();</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;    <span class="comment">//run()方法的实现</span></span><br><span class="line">            account3.count();</span><br><span class="line">        &#125;,<span class="string">&quot;线程A&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;    <span class="comment">//run()方法的实现</span></span><br><span class="line">            account3.count();</span><br><span class="line">        &#125;,<span class="string">&quot;线程B&quot;</span>).start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Account3</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Lock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">count</span><span class="params">()</span> &#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        lock.lock();</span><br><span class="line">        num++;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">&quot;是当前的第&quot;</span>+num+<span class="string">&quot;位访客&quot;</span>);</span><br><span class="line">        lock.unlock();</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>在上面的代码中，我们把资源类Account3和任务Runnable进行了解耦合，Account3不是Runnable接口的实现类，而是一个单纯的类</p>
+<p><strong>synchronized和ReentrantLock的区别</strong></p>
+<ol>
+<li><code>synchronized</code>是一个关键字，而<code>ReentrantLock</code>是一个实现类</li>
+<li><code>synchronized</code>由JVM实现线程同步，<code>ReentrantLock</code>由JDK实现</li>
+<li><code>synchronized</code>在线程结束自动释放锁，<code>ReentrantLock</code>需要开发人员手动释放</li>
+<li><code>ReentrantLock</code>比<code>synchronized</code>更高级,更灵活</li>
+<li><code>synchronized</code>拿不到锁会一直等待，<code>ReentrantLock</code>可以设置等待时间超时放弃等待</li>
+</ol>
+<p><strong>公平锁与非公平锁</strong></p>
+<p>公平锁（FairSync）：线程同步时，多个线程依次排队等待获取锁<br>
+非公平锁（NonfairSync）：线程同步时，可以插队抢占没有被占用的锁</p>
+<p>查看ReentrantLock类的源码发现，默认创建的是非公平锁（实际上synchronized创建的也是非公平锁）</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">ReentrantLock</span><span class="params">()</span> &#123;</span><br><span class="line">    sync = <span class="keyword">new</span> <span class="title class_">NonfairSync</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">ReentrantLock</span><span class="params">(<span class="type">boolean</span> fair)</span> &#123;</span><br><span class="line">    sync = fair ? <span class="keyword">new</span> <span class="title class_">FairSync</span>() : <span class="keyword">new</span> <span class="title class_">NonfairSync</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
             </div>
 
             
                 <div class="post-copyright-info">
-                    <div class="article-copyright-info-container">
-    <ul>
-        <li>本文标题：Java全面复习</li>
-        <li>本文作者：Sunday</li>
-        <li>创建时间：2023-01-08 15:07:41</li>
-        <li>
-            本文链接：https://sblog.wyun521.top/posts/3778293.html
-        </li>
-        <li>
-            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
-        </li>
-    </ul>
-</div>
+                    .article-copyright-info-container {
+  font-family "Noto Sans SC", sans-serif;8
+  position relative
+  width 100%
+  box-sizing border-box
+  padding 10px 6px
+  font-size 1rem
+  background var(--second-background-color)
+  border-radius 14px
+
+  &::after {
+    position absolute
+    top 0
+    left 0
+    content ''
+    width 6px
+    height 100%
+    background var(--copyright-info-color)
+    border-radius 5px
+  }
+
+
+  ul {
+
+    margin-left 10px
+
+    li {
+      margin-bottom 5px
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+      color var(--default-text-color)
+
+      .license {
+        font-weight bold
+      }
+
+      &:last-child {
+        margin-bottom 0
+      }
+    }
+  }
+}
 
                 </div>
             
@@ -947,45 +1211,45 @@
 
             
                 <div class="comment-container">
-                    <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fa-solid fa-comments">&nbsp;评论</i>
-    </div>
-    
+                    if (hexo-config('comment.enable') == true && hexo-config('comment.use') != "") {
+  if (hexo-config('comment.use') == "waline") {
+    @require "./waline.styl"
 
-        
-            
-    <div class="twikoo-container">
-        <script data-pjax
-                src="https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"
-        ></script>
-        <div id="twikoo-comment"></div>
-        <script data-pjax>
-            function loadTwikoo() {
-                twikoo.init({
-                    el: '#twikoo-comment',
-                    envId: 'https://twikoo.wyun521.top/',
-                    /*region: '',*/
-                });
-            }
+  } else if (hexo-config('comment.use') == "gitalk") {
+    @require "./gitalk.styl"
 
-            if ('true') {
-                const loadTwikooTimeout = setTimeout(() => {
-                    loadTwikoo();
-                    clearTimeout(loadTwikooTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadTwikoo);
-            }
-        </script>
-    </div>
+  } else if (hexo-config('comment.use') == "twikoo") {
+    @require "./twikoo.styl"
+  }
+}
 
+.comments-container {
+  display inline-block
+  margin-top $component-spacing-value
+  width 100%
 
-        
-        
-    
-</div>
+  #comment-anchor {
+    width 100%
+    height 10px
+  }
+
+  .comment-area-title {
+    width 100%
+    margin 10px 0
+    font-size 1.38rem
+    color var(--default-text-color)
+
+    i {
+      color var(--default-text-color)
+    }
+
+    +redefine-tablet() {
+      margin 5px 0
+      font-size 1.2rem
+    }
+  }
+
+}
 
                 </div>
             
@@ -993,12 +1257,105 @@
 
         
             <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>目录</strong></div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Java入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Java多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">进程和线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C"><span class="nav-number">2.2.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">2.3.</span> <span class="nav-text">线程的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.4.</span> <span class="nav-text">什么是多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E4%B8%AD%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.5.</span> <span class="nav-text">Java中的多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6%EF%BC%88%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="nav-number">2.6.</span> <span class="nav-text">线程调度（状态转换）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">2.7.</span> <span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.8.</span> <span class="nav-text">线程安全的单例模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">2.9.</span> <span class="nav-text">死锁</span></a></li></ol></li></ol>
-    </div>
-</div>
+                .post-toc-wrap {
+  width 100%
+  font-size 0.92rem
+  box-sizing border-box
+  font-family "Noto Sans", sans-serif
+
+
+  
+  .post-toc {
+    
+    ol {
+      border-left 2px dotted var(--shadow-color-1)
+      list-style none
+      margin 0
+      padding 0 2px 12px 10px
+      text-align left
+
+      &:last-child {
+        padding-bottom 0
+      }
+
+      > ol {
+        padding-left 0
+      }
+
+      a {
+        transition-property all
+        transition()
+        
+      }
+    }
+
+
+    .nav-item {
+      line-height 2
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+      //word-wrap:break-word
+      font-size 0.9rem
+    }
+
+
+    .nav {
+      .nav-child {
+        display hexo-config('toc.expand_all') ? block : none
+      }
+
+      .active > .nav-child {
+        display block
+      }
+
+      .active-current > .nav-child {
+        display block
+
+        > .nav-item {
+          display block
+        }
+      }
+
+
+      .nav-number, .nav-text {
+        color var(--third-text-color)
+      }
+
+      .active > a {
+        .nav-number, .nav-text {
+          color var(--primary-color)
+          font-weight bold
+        }
+
+      }
+
+      .active-current {
+        .nav-number, .nav-text {
+          color var(--primary-color) !important
+          font-weight bold
+          transition none
+        }
+      }
+
+      .active-current > span {
+        &:first-child::before {
+          content " "
+          width 10px
+          height 1.7rem
+          margin auto 0
+          transform translate(-12px,0)
+          border-left 2px solid var(--primary-color)
+          position absolute
+          margin-right 4px
+          color var(--primary-color)
+        }
+      }
+    }
+  }
+}
+
+
             </div>
         
     </div>
@@ -1014,185 +1371,435 @@
         </div>
 
         <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2023</span>
-              -
-            
-            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Sunday. 版权所有.</a>
-        </div>
-        
-            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                    <span id="busuanzi_container_site_uv">
-                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
-                    </span>
-                
-                
-                    <span id="busuanzi_container_site_pv">
-                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.5.2</a>
-        </div>
-        
-        
-        <script async data-pjax defer>
-            function odometer_init(){
-                    let el = document.getElementsByClassName('odometer');
-                    for (i = 0; i < el.length; i++) {
-                        od = new Odometer({
-                            el: el[i],
-                            format: '( ddd).dd',
-                            duration: 200
-                        });
-                    }
-            }
-            odometer_init();
-        </script>
-        <div id="start_time_div" style="display:none">
-            2023/01/04 16:45:14
-        </div>
-        
-            <div>
-                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
-            </div>
-        
-        
-            <div class="customize-info info-item">I wish you to become your own sun, no need to rely on who's light.⚽</div>
-        
+            .footer {
+  font-size 1rem
+  color var(--third-text-color)
 
-        
-            
-                
-        
-                
-        
-                <script defer src="/js/custom@1.0/sunday.js"></script>
-        
-                <script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script>
-        
-                <script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script>
-        
-                <script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script>
-        
-                <script defer src="/js/custom@1.0/pop.js"></script>
-        
-                <script async src="/js/custom@1.0/title.js"></script>
-        
-        
-    </div>  
-</footer>
+
+  a {
+    color var(--third-text-color)
+
+
+    &:hover {
+      color var(--primary-color)
+
+    }
+  }
+
+  .info-container {
+    padding-bottom 10px
+    text-align center
+  }
+
+  .info-item {
+    margin 5px 0
+  }
+
+  .icon-animate {
+    animation icon-animate 1.2s ease-in-out infinite
+  }
+
+}
+
+
+
+
         </div>
     </div>
 
     
         <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
+            $li-border-radius = 10px
+$li-margin-bottom = 12px
+$post-tool-button-width = 42px
 
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fa-regular fa-comments"></i>
-            </li>
-        
-    </ul>
-</div>
+.post-tools-container {
+
+  .tools-list {
+
+    li {
+      cursor pointer
+      width $post-tool-button-width
+      height $post-tool-button-width
+      border-radius $li-border-radius
+      font-size 1.2rem
+      display flex
+      align-items center
+      justify-content center
+      margin-bottom $li-margin-bottom
+      background var(--background-color)
+      color var(--default-text-color)
+
+      i {
+        color var(--default-text-color)
+      }
+
+      &:hover {
+        background var(--primary-color)
+        color var(--background-color)
+
+        i {
+          color var(--background-color)
+        }
+      }
+
+
+      &:last-child {
+        margin-bottom 0
+      }
+
+
+      hover-style(true, 1.06, 1.06)
+
+      &.page-aside-toggle {
+        display none
+
+        +redefine-tablet() {
+          display none !important
+        }
+      }
+    }
+  }
+
+}
 
         </div>
     
 
     <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-        </li>
+        $tools-item-width = 42px
+$tools-item-font-size = 1.3rem
+$tools-item-border-radius = 12px
 
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fa-solid fa-magnifying-glass-minus"></i>
-        </li>
 
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fa-solid fa-left-right"></i>
-        </li>
+.side-tools-container {
+  position relative
+  right 30px
 
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fa-solid fa-moon"></i>
-        </li>
+  .tools-item {
+    width $tools-item-width
+    height $tools-item-width
+    font-size $tools-item-font-size
+    margin-bottom 3px
+    cursor pointer
+    border-right none
+    border-radius $tools-item-border-radius
+    box-shadow var(--redefine-box-shadow)
+    color var(--default-text-color)
+    background var(--background-color)
 
-        <!-- rss -->
-        
+    i {
+      color var(--default-text-color)
+    }
 
-        
+    &:hover {
+      color var(--background-color)
+      background var(--primary-color)
+      box-shadow var(--redefine-box-shadow)
 
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fa-solid fa-arrow-down"></i>
-        </li>
-    </ul>
+      i {
+        color var(--background-color)
+      }
+    }
 
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fa-solid fa-cog fa-spin"></i>
-        </li>
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
-</div>
+    +redefine-tablet() {
+      width $tools-item-width * 0.9
+      height $tools-item-width * 0.9
+      font-size $tools-item-font-size * 0.9
+      margin-bottom 2px
+    }
+
+    &.rss {
+
+      a {
+        border-radius $tools-item-border-radius
+        width 100%
+        height 100%
+
+        &:hover {
+          color var(--background-color)
+          background var(--primary-color)
+          box-shadow var(--redefine-box-shadow)
+        }
+      }
+    }
+  }
+
+
+  .side-tools-list {
+    opacity 0
+    transform translateX(100%)
+    transition-t("transform, opacity", "0, 0", "0.2, 0.2", "ease, ease")
+
+    .tool-expand-width {
+      +redefine-tablet() {
+        display none
+      }
+    }
+
+
+    &.show {
+      opacity 1
+      transform translateX(0)
+    }
+  }
+
+
+  .exposed-tools-list {
+
+    if (hexo-config('style.scroll.percent.enable') == true) {
+      .tool-scroll-to-top {
+        display none
+
+        &.show {
+          display flex
+        }
+
+        &:hover {
+
+          .percent {
+            display none
+          }
+
+          .arrow-up {
+            display flex
+          }
+
+        }
+
+        .arrow-up {
+          display none
+        }
+
+        .percent {
+          display flex
+          font-size 1rem
+        }
+
+      }
+
+    }
+  }
+}
 
     </div>
 
-    <div class="image-viewer-container">
-    <img src="">
-</div>
+    .image-viewer-container {
+  position fixed
+  left 0
+  top 0
+  width 100%
+  height 100%
+  display flex
+  align-items center
+  justify-content center
+  background rgba(0, 0, 0, 0)
+  visibility hidden
+  z-index $z-index-8
+  padding 6%
+  box-sizing border-box
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease")
+
+  &.active {
+    background rgba(0, 0, 0, 0.5)
+    visibility visible
+
+    img {
+      cursor zoom-out
+      transform scale(1)
+      padding 2px
+      background var(--background-color)
+    }
+  }
+
+  img {
+    max-width 100%
+    max-height 100%
+    transform scale(0)
+    transition-t("transform", "0", "0.3", "ease")
+  }
+}
+
+
 
 
     
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fa-solid fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fa-solid fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
+        $icon-size = 1.2rem
+
+.search-pop-overlay {
+  position fixed
+  display flex
+  height 100%
+  width 100%
+  left 0
+  top 0
+  background rgba(0, 0, 0, 0)
+  visibility hidden
+  z-index $z-index-8
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease")
+
+  &.active {
+    visibility visible
+    background rgba(0, 0, 0, 0.35)
+
+    .search-popup {
+      transform scale(1)
+    }
+
+  }
+
+
+  .search-popup {
+    background var(--background-color)
+    border-radius 5px
+    height 80%
+    width 70%
+    margin auto
+    transform scale(0)
+    z-index $z-index-6
+    transition-t("transform", "0", "0.3", "ease")
+
+    +redefine-tablet() {
+      width 80%
+    }
+
+    +redefine-mobile() {
+      width 90%
+    }
+
+    .search-header {
+      background var(--fourth-text-color)
+      border-top-left-radius 2px
+      border-top-right-radius 2px
+      display flex
+      padding 10px
+
+      .search-input-field-pre, .popup-btn-close {
+        font-size $icon-size
+        padding 0 10px
+        display flex
+        align-items center
+      }
+
+      .search-input-field-pre {
+        cursor pointer
+        color var(--third-text-color)
+      }
+
+      .popup-btn-close {
+        color var(--default-text-color)
+      }
+
+
+      .search-input-container {
+
+        flex-grow 1
+        padding 2px
+
+        .search-input {
+          background transparent
+          border 0
+          outline 0
+          width 100%
+          font-size 1.2rem
+          color var(--default-text-color)
+
+          &::-webkit-search-cancel-button {
+            display none
+          }
+        }
+
+
+      }
+
+
+      .popup-btn-close {
+        cursor pointer
+
+        &:hover .fas, far, fab {
+          color var(--first-text-color)
+        }
+      }
+
+    }
+
+
+    #search-result {
+      display flex
+      height calc(100% - 55px)
+      overflow auto
+      padding 5px 25px
+
+      .search-result-list {
+        width 100%
+        height 100%
+        font-size 1rem
+
+        li {
+          border-bottom 1px dashed var(--border-color)
+          padding 10px 0
+          margin 10px 0
+          box-sizing border-box
+
+          &:last-child {
+            border-bottom none
+          }
+
+
+          .search-result-title {
+            position relative
+            font-weight bold
+            margin-bottom 10px
+            padding-left 16px
+            display flex
+            align-items center
+
+            &::after {
+              content ''
+              position absolute
+              width 5px
+              height 5px
+              border-radius 50%
+              top 50%
+              transform translateY(-50%)
+              left 0
+              background var(--default-text-color)
+            }
+          }
+
+
+          .search-result {
+            line-height 2rem
+            margin 0
+            padding-left 16px
+            word-wrap break-word
+          }
+
+          a {
+            &:hover {
+              color var(--default-text-color)
+            }
+          }
+
+          .search-keyword {
+            border-bottom 1px dashed var(--primary-color)
+            color var(--primary-color)
+            font-weight bold
+          }
+
+        }
+      }
+
+
+      #no-result {
+        color var(--third-text-color)
+        margin auto
+      }
+
+    }
+  }
+}
+
 
     
 

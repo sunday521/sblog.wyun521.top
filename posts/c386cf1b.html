@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Sunday">
+    
+    <title>
+        
+            Python爬虫 |
+        
+        星期天
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://mysource-hexo.wyun521.top/img/cover/logo.png">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/css/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/css/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/css/regular.min.css">
+    
+    
+    
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/css/css2.css">
+
+    
+        
+            
+    
+            
+    
+            <link rel="stylesheet" href="/css/custom@1.0/sunday.css">
+    
+            <link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css">
+    
+
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"sblog.wyun521.top","root":"/","language":"zh-CN","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0075eb","avatar":"https://mysource-hexo.wyun521.top/img/avator/7.jpg","favicon":"https://mysource-hexo.wyun521.top/img/cover/logo.png","article_img_align":"center","right_side_width":"550px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Theme Redefine"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.5.2","friend_links":{"columns":2}};
+    REDEFINE.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body>
+.progress-bar-container {
+  position fixed
+  top 0
+  left 0
+  width 100%
+  z-index $z-index-9
+
+  if (hexo-config('pjax.enable') == true) {
+
+    .pjax-progress-bar {
+      position absolute
+      top 0
+      left 0
+      height 2px
+      width 0
+      background var(--pjax-progress-bar-color)
+      visibility hidden
+      opacity 0
+      z-index $z-index-8
+      transition-t("width", "0", "0.1", "linear")
+
+
+      &.show {
+        opacity 1
+        visibility visible
+      }
+    }
+
+
+    .pjax-progress-icon {
+      position absolute
+      top 0
+      right 0
+      z-index $z-index-8
+      display flex
+      align-items center
+      justify-content center
+      padding 7px 6px 0 0
+      visibility hidden
+      font-size 1.1rem
+      color var(--default-text-color)
+
+      +redefine-tablet() {
+        padding 6px 5px 0 0
+        font-size 1rem
+      }
+
+      &.show {
+        visibility visible
+      }
+    }
+
+  }
+
+  if (hexo-config('style.scroll.progress_bar.enable') == true) {
+
+    .scroll-progress-bar {
+      position absolute
+      top 0
+      left 0
+      width 0
+      height $scroll-progress-bar-height
+      visibility hidden
+      z-index $z-index-7
+      background var(--primary-color)
+      transition-t("width", "0", "0.1", "linear")
+
+      &.hide {
+        display none !important
+      }
+    }
+
+  }
+}
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            $logo-title-font-size = 2rem
+$pc-search-icon-font-size = 1.5rem
+$menu-bar-line-height = 2.5px
+$logo-image-box-width = 46px
+
+.header-wrapper {
+  font-family "Optima Medium", sans-serif
+  width 100%
+  height 100%
+  box-sizing border-box
+  display flex
+  align-items center
+  justify-content center
+  background $nav-color-bg
+  -webkit-backdrop-filter blur(10px)
+  backdrop-filter blur(10px)
+  padding-top $scroll-progress-bar-height
+
+  hover-style(false, 0, 0)
+
+  .header-content {
+    position relative
+    height 100%
+    width $main-content-width
+    max-width $content-max-width
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    z-index $z-index-5
+
+
+    &.has-first-screen {
+      max-width $content-max-width * 1.2
+    }
+
+    +redefine-tablet() {
+      width $main-content-width-tablet
+    }
+
+    +redefine-mobile() {
+      width $main-content-width-mobile
+    }
+
+    .left {
+      display flex
+      align-items center
+      transition-t("transform", "0", "0.2", "linear")
+
+      .header-shrink & {
+        transform scale(0.72)
+        transform-origin left
+      }
+
+
+      if (hexo-config('base_info.logo_img') && hexo-config('base_info.logo_img') != '') {
+        .logo-image {
+          width $logo-image-box-width
+          height $logo-image-box-width
+          margin-right 8px
+
+
+          +redefine-tablet() {
+            width $logo-image-box-width * 0.9
+            height $logo-image-box-width * 0.9
+          }
+
+          +redefine-mobile() {
+            width $logo-image-box-width * 0.8
+            height $logo-image-box-width * 0.8
+          }
+
+          img {
+            border-radius 6px
+            width 100%
+          }
+        }
+
+      }
+
+      .logo-title {
+        font-size $logo-title-font-size
+        font-family "Optima Bold", sans-serif
+        //letter-spacing 1px
+        line-height 1
+        color var(--first-text-color)
+
+        +redefine-tablet() {
+          font-size $logo-title-font-size * 0.9
+        }
+
+        +redefine-mobile() {
+          font-size $logo-title-font-size * 0.8
+        }
+      }
+
+    }
+
+
+    .right {
+
+      .pc {
+
+        .menu-list {
+          display flex
+          align-items center
+          
+
+          +redefine-tablet() {
+            display none
+          }
+
+
+          .menu-item {
+            float left
+            padding 5px
+            position relative
+            margin-left 30px
+            font-size 1rem
+            cursor pointer
+            color var(--default-text-color)
+
+            &:first-child {
+              margin-left 0
+            }
+
+            a .fa-chevron-down{
+              transform rotate(0deg)
+              transition transform 0.3s ease
+            }
+
+            &:hover a .fa-chevron-down{
+              transform rotate(180deg)
+            }
+
+            &:hover .has-dropdown{
+              &::after {
+                display none !important
+              }
+            }
+
+            &:hover a, .active {
+              &::after {
+                content ''
+                position absolute
+                bottom -5px
+                left 50%
+                width 100%
+                height 2px
+                transform translateX(-50%)
+                background var(--primary-color)
+                transition-t("transform, bottom", "0, 0", "0.2, 0.2", "linear, linear")
+
+                .header-shrink & {
+                  bottom -($header-shrink-height / 2 - 17)
+                }
+              }
+            }
+            
+            
+
+            &.search {
+              font-size $pc-search-icon-font-size
+              margin-left 26px
+
+              i {
+                color var(--default-text-color)
+              }
+
+            }
+
+            .sub-menu{
+              position absolute;
+              right auto
+              left 50%
+              -webkit-transform translate(-50%, 0)
+              -o-transform translate(-50%, 0)
+              transform translate(-50%, 0)
+              margin-top 8px
+              width auto
+              text-align: center;
+              list-style:none;
+              padding 0 10px 
+              border-radius 18px
+              //visibility hidden
+              
+
+              max-height 0px
+              overflow hidden
+              transition-t("all", "0", "0.2", "linear") 
+
+              li a {
+                white-space nowrap
+                color var(--default-text-color)
+                font-size 1rem
+                padding 3px 15px
+                display block
+                text-align center
+                border-radius 8px
+                transition-t("all", "0", "0.2", "linear")
+
+                &:hover {
+                  color var(--primary-color)
+                  background-color var(--second-background-color)
+                }
+              }
+            }
+
+          }
+
+        }
+
+        .menu-list .menu-item:hover .sub-menu{
+          //visibility visible
+          max-height 500px
+          transition-t("all", "0", "0.2", "ease")
+          redefine-container(false, 0, 0, 10px, 5px)
+        }
+        
+      }
+
+
+      .mobile {
+        display flex
+        justify-content space-between
+        align-items center
+
+        .icon-item {
+          display none
+          position relative
+          cursor pointer
+          font-size 18px
+          margin-left 12px
+          width 20px
+          height 20px
+          color var(--default-text-color)
+
+          i {
+            color var(--default-text-color)
+          }
+
+          &:first-child {
+            margin-left 0
+          }
+
+          +redefine-tablet() {
+            display flex
+            justify-content center
+            align-items center
+          }
+        }
+
+        .menu-bar {
+
+          .menu-bar-middle {
+            width 18px
+            height $menu-bar-line-height
+            position relative
+            background var(--default-text-color)
+
+            .header-drawer-show & {
+              background transparent
+            }
+
+
+            &::before, &::after {
+              content ''
+              position absolute
+              left 0
+              width 100%
+              height $menu-bar-line-height
+              background var(--default-text-color)
+              transition-t("transform", "0", "0.38", "ease")
+            }
+
+
+            &::before {
+              top -6px
+
+              .header-drawer-show & {
+                transform translateY(6px) rotate(45deg)
+              }
+            }
+
+
+            &::after {
+              bottom -6px
+
+              .header-drawer-show & {
+                transform translateY(-6px) rotate(-45deg)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .header-drawer {
+    width 100%
+    padding $header-height 0 20px 0
+    position absolute
+    top 0
+    left 0
+    transform scaleY(0)
+    transform-origin top
+    z-index $z-index-2
+    background var(--background-color)
+    transition-t("transform", "0", "0.38", "ease")
+
+    .header-drawer-show & {
+      transform scaleY(1)
+    }
+
+    .drawer-menu-list {
+      display flex
+      flex-direction column
+      justify-content flex-start
+      align-items center
+
+      .drawer-menu-item {
+        font-family: "Optima Bold", sans-serif
+        font-size 1rem
+        margin 6px 0
+        height 32px
+
+        a {
+          padding 6px 20px
+          border-radius 20px
+          color var(--default-text-color)
+
+          &:hover {
+            color var(--second-text-color)
+            border 1px solid var(--default-text-color)
+          }
+
+
+          &.active {
+            border 1px solid var(--default-text-color)
+            color var(--second-text-color)
+          }
+        }
+
+        .has-dropdown {
+          font-family: "Optima Bold", sans-serif
+        }
+
+        a .fa-chevron-down{
+          transform rotate(0deg)
+          transition transform 0.3s ease
+        }
+
+        &:hover a .fa-chevron-down{
+          transform rotate(180deg)
+        }
+
+        &:hover .has-dropdown{
+          &::after {
+            display none !important
+          }
+        }
+      }
+
+      .dropdown-item {
+        font-size 1rem
+        margin 6px 0
+        height 16px
+
+        a {
+          padding 6px 20px
+          border-radius 20px
+          color var(--default-text-color)
+
+          &:hover {
+            color var(--second-text-color)
+            border 1px solid var(--default-text-color)
+          }
+
+
+          &.active {
+            border 1px solid var(--default-text-color)
+            color var(--second-text-color)
+          }
+        }
+      }
+
+      .sub-menu{
+        position relative
+        margin-top 8px
+        width 100%
+        text-align: center;
+        list-style: none;
+        padding 0 10px 
+        border-radius 18px
+        //float left
+      }
+    }
+  }
+
+
+  .window-mask {
+    position absolute
+    top 0
+    width 100%
+    height 100vh
+    background rgba(0, 0, 0, 0.4)
+    z-index $z-index-1
+    visibility hidden
+    opacity 0
+    transition-t("transform, opacity", "0, 0", "0.38, 0.38", "ease, ease")
+
+    .header-drawer-show & {
+      visibility visible
+      opacity 1
+    }
+  }
+
+}
+
+.header-drawer-show {
+  overflow hidden
+}
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">Python爬虫</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://mysource-hexo.wyun521.top/img/avator/7.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Sunday</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            .article-meta-info {
+  font-size 0.8rem
+  color var(--third-text-color)
+
+  .article-meta-item {
+    margin-right 10px
+
+    &:last-child {
+      margin-right 0
+    }
+  }
+
+  .article-date {
+
+    .mobile {
+      display none
+    }
+
+    +redefine-tablet() {
+      .pc {
+        display none
+      }
+
+      .mobile {
+        display inline
+      }
+    }
+
+  }
+
+
+  .article-tags, .article-categories {
+    display inline
+
+    ul, li {
+      display inline
+    }
+
+    a {
+      color var(--third-text-color)
+
+      &:hover {
+        color var(--primary-color)
+      }
+    }
+  }
+
+  .article-tags {
+    +redefine-tablet() {
+      display none
+    }
+  }
+
+  .article-min2read, .article-wordcount {
+    +redefine-mobile() {
+      display none
+    }
+  }
+}
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2>初识爬虫</h2>
+<h3 id="爬虫的概念">爬虫的概念</h3>
+<p><strong>什么是爬虫</strong></p>
+<p><code>爬虫</code>：通过编写程序，模拟浏览器上网，并抓取有价值的数据的过程</p>
+<p><code>反爬虫</code>：门户网站通过制定相应的策略或技术手段，来阻止爬虫程序对其网站数据的爬取</p>
+<p><code>反反爬</code>：爬虫程序可以采用一些技术手段，来绕过或破坏门户网站的反爬机制，从而爬取到有用的数据</p>
+<blockquote>
+<p>爬虫与反爬虫就是一对矛与盾</p>
+</blockquote>
+<p><strong>爬虫合法性探究</strong></p>
+<p>爬虫可能带来的风险？</p>
+<ul>
+<li>爬虫干扰了被访问网站的正常运营</li>
+<li>爬虫抓取了受到法律保护的特定类型的数据或信息</li>
+</ul>
+<p>如何合理地使用爬虫？</p>
+<ul>
+<li>对爬虫程序进行优化，避免干扰网站的正常运行</li>
+<li>不要爬取涉及商业机密等敏感信息</li>
+</ul>
+<p><strong>爬虫的君子协议</strong></p>
+<p>通常，网站的<code>robots.txt</code>文件中声明了那些数据可以被爬取，那些数据不可以被爬取（非强制性）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230113122447.png"
+                      alt="20230113122447"
+                ></p>
+<h3 id="爬虫的分类">爬虫的分类</h3>
+<p>在不同的使用场景下，爬虫的分类有</p>
+<ol>
+<li>
+<p><code>通用爬虫</code>：抓取一整张页面的数据（很可能包含大量无用信息）</p>
+</li>
+<li>
+<p><code>聚焦爬虫</code>：抓取页面中特定的局部内容，必须建立在通用爬虫的基础之上</p>
+</li>
+<li>
+<p><code>增量爬虫</code>：只会爬取网站中最新更新的数据</p>
+</li>
+</ol>
+<h2>网络请求与响应</h2>
+<h3 id="http协议">http协议</h3>
+<p>http(s)协议是服务器和客户端进行数据交互的一种形式，服务器和客户端都需要遵守该协议才能进行数据交互</p>
+<p>https协议是http协议的升级版，服务器与客户端的数据交互是通过证书加密的，攻击者很难获得有价值的信息</p>
+<p><strong>常用的请求头信息</strong></p>
+<table>
+<thead>
+<tr>
+<th>Request Header</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User-Agent</td>
+<td>请求载体的身份标识</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>请求完毕后，保持连接还是断开连接</td>
+</tr>
+</tbody>
+</table>
+<p><strong>常用的响应头信息</strong></p>
+<table>
+<thead>
+<tr>
+<th>Response Header</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>服务器响应数据的类型</td>
+</tr>
+</tbody>
+</table>
+<h3 id="requests模块">requests模块</h3>
+<p><code>requests</code>是python中的一个基于网络请求的模块，用来模拟浏览器发送请求。</p>
+<p><strong>requests模块的安装与使用</strong></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com&#x27;</span></span><br><span class="line">resp = requests.get(url)    <span class="comment">#发起一个get请求，并获得响应数据</span></span><br><span class="line">page_content = resp.text</span><br><span class="line"><span class="built_in">print</span>(page_content)</span><br></pre></td></tr></table></figure></div>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resp.text</td>
+<td>以字符串形式返回，通常是页面的html源代码</td>
+</tr>
+<tr>
+<td>resp.content</td>
+<td>以二进制形式返回，比如一张图片、一个音频</td>
+</tr>
+<tr>
+<td>resp.json()</td>
+<td>返回一个字典对象（当响应数据是json类型时使用）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>基于requests的简易网页采集器（使用到了UA伪装）</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line"><span class="comment"># url = &#x27;https://www.sogou.com/web?query=猫羽雫&#x27;</span></span><br><span class="line">url = <span class="string">&#x27;https://www.sogou.com/web&#x27;</span></span><br><span class="line">word = <span class="built_in">input</span>(<span class="string">&#x27;Enter a word:&#x27;</span>)</span><br><span class="line">params = &#123;  <span class="comment">#请求参数，拼接在url后</span></span><br><span class="line">    <span class="string">&#x27;query&#x27;</span>: word</span><br><span class="line">&#125;</span><br><span class="line">headers = &#123; <span class="comment">#请求头，伪装成浏览器</span></span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 发起请求</span></span><br><span class="line">resp = requests.get(url,params,headers=headers)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">page_content = resp.text</span><br><span class="line"><span class="built_in">print</span>(page_content)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 持久化存储</span></span><br><span class="line">file_name = word + <span class="string">&#x27;.html&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file_name,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(page_content)</span><br><span class="line"><span class="built_in">print</span>(file_name,<span class="string">&#x27;保存成功！&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+<h2>数据解析</h2>
+<p><code>数据解析</code>是在得到整个网页源代码后，对其中的有用信息进行提取的过程。属于聚焦爬虫</p>
+<p><strong>数据解析的一般步骤</strong></p>
+<p>检查网页源代码发现，有价值的数据一般存放在标签中，或者标签的属性中。所以数据解析的一般步骤是：<mark>1.获取网页源代码 2.标签定位 3.解析数据</mark></p>
+<blockquote>
+<p>F12检查元素中的数据不一定在页面源代码中，也有可能是通过ajax动态刷新的数据，这是我们在数据解析时需要注意的。数据解析要以页面源代码为准！</p>
+</blockquote>
+<p><strong>Python中数据解析的三种方式</strong></p>
+<p>1.正则表达式（通用）  2.BeautifulSoup4（python独有） 3.xpath（推荐，通用性最强）</p>
+<h3 id="使用正则表达式">使用正则表达式</h3>
+<p>建议先把要提取的那部分源码单独复制，对照着去写正则表达式（F12太乱了🤣）</p>
+<p>从重复的标签（如li）开始写正则，那么这个正则可以提取到多组数据哦</p>
+<p><strong>re.findall(pattern,string,flags)</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pattern</td>
+<td>匹配的正则表达式</td>
+</tr>
+<tr>
+<td>string</td>
+<td>待匹配的文本字符串</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>标志位。用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table>
+<thead>
+<tr>
+<th>标志位</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.S</td>
+<td>使.能够匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>多行匹配，影响^和$</td>
+</tr>
+<tr>
+<td>re.I</td>
+<td>使匹配对大小写不敏感</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table>
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除换行符外的任意单个字符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配多个字符</td>
+</tr>
+<tr>
+<td>?</td>
+<td>非贪婪匹配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用BeautifulSoup">使用BeautifulSoup</h3>
+<p>对于一个网页来说，都有一定的特殊结构和层级关系，而且很多节点都用id和class来区分。所以可以借助网页的结构和属性来提取数据。</p>
+<p><strong>使用BeautifulSoup的一般步骤</strong></p>
+<ol>
+<li>实例化一个BeautifulSoup对象，并且<mark>将页面源代码加载到该对象中</mark></li>
+<li>调用BeautifulSoup对象提供的属性或方法进行标签定位和数据提取</li>
+</ol>
+<p><strong>BeautifulSoup4的安装与使用（需要一并下载lxml解析器）</strong></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install bs4</span><br><span class="line">pip install lxml</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载html有两种方式</span></span><br><span class="line"><span class="comment"># 方式一 使用本地html文档中的数据</span></span><br><span class="line">fp = <span class="built_in">open</span>(<span class="string">&#x27;./猫羽雫.html&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">soup = BeautifulSoup(fp,<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(soup) <span class="comment">#我们发现，soup对象的内容就是加载到该对象中的html源码</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二 从互联网上获取html源码</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line">resp = requests.get(url)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">soup = BeautifulSoup(resp.text,<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(soup)</span><br></pre></td></tr></table></figure></div>
+<p><strong>BeautifulSoup对象中提供的属性和方法</strong></p>
+<ol>
+<li>根据标签名或选择器定位，返回标签之间的所有内容</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find(tag,attr=value)</td>
+<td>根据标签名和属性进行定位，只返回符合条件的第一个元素内容</td>
+</tr>
+<tr>
+<td>find_all(tag,attr=value)</td>
+<td>返回一个列表，用法同上</td>
+</tr>
+<tr>
+<td>select(css选择器)</td>
+<td>使用CSS选择器进行定位，返回一个列表</td>
+</tr>
+</tbody>
+</table>
+<br/>
+2. 获取标签之间的文本数据（不包括子标签）
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.text</td>
+<td>获取所有文本内容</td>
+</tr>
+<tr>
+<td>.string</td>
+<td>只能获取直系的文本内容</td>
+</tr>
+</tbody>
+</table>
+<br/>
+3. 获取标签中指定属性的值
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[attr]</td>
+<td>获取属性对应的属性值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用xpath解析">使用xpath解析</h3>
+<p>xpath解析是最常用、最便捷、最高效，且通用性最强的解析方式。xpath是根据元素所处层级进行定位的</p>
+<p><strong>xpath解析的一般步骤</strong></p>
+<ol>
+<li>实例化一个etree对象，并将要解析的html页面源码数据加载到对象中</li>
+<li>调用etree对象的<code>xpath(xpath表达式)</code>方法结合xpath表达式实现标签的定位和数据提取</li>
+</ol>
+<p><strong>xpath的安装与使用</strong></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install lxml</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载html有两种方式</span></span><br><span class="line"><span class="comment"># 方式一 使用本地html文档中的数据</span></span><br><span class="line">etree.parse(<span class="string">&#x27;./猫羽雫.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二 从互联网上获取html源码</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line">resp = requests.get(url)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">etree.HTML(page_content)</span><br></pre></td></tr></table></figure></div>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>etree.HTML(html)</td>
+<td>实例化一个etree对象，并加载要解析的html</td>
+</tr>
+<tr>
+<td>etree.parse(filepath)</td>
+<td>实例化一个etree对象，并加载要解析的html（本地html）</td>
+</tr>
+<tr>
+<td>xpath(xpath表达式)</td>
+<td>使用xpath表达式进行标签定位，返回一个列表</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p>xpath()方法返回一个列表，如果xpath表达式只进行了定位，没有进行数据提取，那么列表中每个元素都将是一个Element对象。</p>
+<p><strong>xpath表达式用法</strong></p>
+<ol>
+<li>根据html元素层级进行定位</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>xpath表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>表示单个层级，放在开头表示html根元素</td>
+</tr>
+<tr>
+<td>//</td>
+<td>表示多个层级（常用）</td>
+</tr>
+<tr>
+<td>./</td>
+<td>表示当前标签</td>
+</tr>
+<tr>
+<td>[@attr=value]</td>
+<td>根据属性进行定位</td>
+</tr>
+<tr>
+<td>[index]</td>
+<td>根据元素所处位置进行定位，index从1开始</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<ol start="2">
+<li>提取标签之间的文本数据</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>xpath表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/text()</td>
+<td>获取标签中的文本,返回一个列表</td>
+</tr>
+<tr>
+<td>//text()</td>
+<td>可以获取标签中非直系的文本，返回一个列表</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<ol start="3">
+<li>提取标签中指定属性的值</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>xpath表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/@attr</td>
+<td>获取标签中属性对应的值</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2>数据解析实战</h2>
+<p>我们将通过三个案例分别使用三种数据解析方式获取到我们想要的数据</p>
+<h3 id="彼岸图网">彼岸图网</h3>
+<p><code>需求</code>：获取图中每个li标签内，所有a标签href属性的值，所有img标签src属性的值，以及所有b标签内的文本</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230114184112.png"
+                      alt="20230114184112"
+                ></p>
+<p><strong>方式一 正则表达式</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">url = <span class="string">&#x27;https://pic.netbian.com/4kmeinv/&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">resp = requests.get(url,headers=headers)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">page_content = resp.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为了防止下一步获取的&lt;li&gt;标签不准确，这里加了一步先获取&lt;ul&gt;的操作</span></span><br><span class="line">ex0 = <span class="string">&#x27;&lt;ul class=&quot;clearfix&quot;&gt;(.*?)&lt;/ul&gt;&#x27;</span></span><br><span class="line">ul = re.findall(ex0,page_content,re.S)  <span class="comment">#实际上页面中就一个符合条件的ul</span></span><br><span class="line">ul_content = ul[<span class="number">0</span>].strip()  <span class="comment">#strip()去除字符串首尾空格和换行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 数据解析</span></span><br><span class="line"><span class="comment"># 待匹配的字符串格式：&lt;li&gt;&lt;a href=&quot;/tupian/30912.html&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/uploads/allimg/230111/012011-16733712117326.jpg&quot; alt=&quot;4k 居家 可爱 公主 女孩 美女 粉色裙子 电脑 壁纸&quot; /&gt;&lt;b&gt;4k 居家 可爱 公主 女孩&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line">ex = <span class="string">&#x27;&lt;li&gt;&lt;a href=&quot;(.*?)&quot; .*?&lt;img src=&quot;(.*?)&quot; .*?&lt;b&gt;(.*?)&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;&#x27;</span> <span class="comment">#把想要提取的内容用()括起来</span></span><br><span class="line">data_list = re.findall(ex,ul_content,re.S)</span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> data_list:</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="comment"># (&#x27;/tupian/30912.html&#x27;, &#x27;/uploads/allimg/230111/012011-16733712117326.jpg&#x27;, &#x27;4k 居家 可爱 公主 女孩&#x27;)</span></span><br><span class="line"><span class="comment"># (&#x27;/tupian/30903.html&#x27;, &#x27;/uploads/allimg/230110/153047-16733358474a9c.jpg&#x27;, &#x27;甜美微笑 双手合十 小清&#x27;)</span></span><br><span class="line"><span class="comment"># ... ...</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>方式二 bs4</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">url = <span class="string">&#x27;https://pic.netbian.com/4kmeinv/&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">resp = requests.get(url,headers=headers)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">page_content = resp.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 数据解析</span></span><br><span class="line">soup = BeautifulSoup(page_content,<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">ul = soup.find(<span class="string">&#x27;ul&#x27;</span>,class_=<span class="string">&#x27;clearfix&#x27;</span>)</span><br><span class="line">a_list = ul.find_all(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="comment"># 或者直接 a_list = soup.select(&#x27;div.clearfix li a&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> a_list:</span><br><span class="line">    a_href = a[<span class="string">&#x27;href&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(a_href)</span><br><span class="line"></span><br><span class="line">    img_src = a.find(<span class="string">&#x27;img&#x27;</span>)[<span class="string">&#x27;src&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(img_src)</span><br><span class="line"></span><br><span class="line">    b = a.find(<span class="string">&#x27;b&#x27;</span>).text    <span class="comment">#text获取标签中的所有文本</span></span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="comment"># /tupian/30912.html</span></span><br><span class="line"><span class="comment"># /uploads/allimg/230111/012011-16733712117326.jpg</span></span><br><span class="line"><span class="comment"># 4k 居家 可爱 公主 女孩</span></span><br><span class="line"><span class="comment"># /tupian/30903.html</span></span><br><span class="line"><span class="comment"># /uploads/allimg/230110/153047-16733358474a9c.jpg</span></span><br><span class="line"><span class="comment"># 甜美微笑 双手合十 小清</span></span><br><span class="line"><span class="comment"># ... ...</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p><strong>方式三 xpath</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">url = <span class="string">&#x27;https://pic.netbian.com/4kmeinv/&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">resp = requests.get(url,headers=headers)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">page_content = resp.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 数据解析</span></span><br><span class="line"><span class="comment"># //多个层级下找  xpath()永远返回一个列表</span></span><br><span class="line">tree = etree.HTML(page_content)</span><br><span class="line">li_list = tree.xpath(<span class="string">&#x27;//ul[@class=&quot;clearfix&quot;]/li&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> li <span class="keyword">in</span> li_list:</span><br><span class="line">    a_href = li.xpath(<span class="string">&#x27;./a/@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(a_href)</span><br><span class="line"></span><br><span class="line">    img_src = li.xpath(<span class="string">&#x27;.//img/@src&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(img_src)</span><br><span class="line"></span><br><span class="line">    span = li.xpath(<span class="string">&#x27;.//b/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(span)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="comment"># /tupian/30912.html</span></span><br><span class="line"><span class="comment"># /uploads/allimg/230111/012011-16733712117326.jpg</span></span><br><span class="line"><span class="comment"># 4k 居家 可爱 公主 女孩</span></span><br><span class="line"><span class="comment"># /tupian/30903.html</span></span><br><span class="line"><span class="comment"># /uploads/allimg/230110/153047-16733358474a9c.jpg</span></span><br><span class="line"><span class="comment"># 甜美微笑 双手合十 小清</span></span><br><span class="line"><span class="comment"># ... ...</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="Wallhaven">Wallhaven</h3>
+<p><code>需求</code>：获取图中每个li标签内，所有a标签href属性的值，所有img标签data-src属性的值，以及所有span标签内图片的分辨率信息</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230114194136.png"
+                      alt="20230114194136"
+                ></p>
+<p><strong>方式一 正则表达式</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">url = <span class="string">&#x27;https://wallhaven.cc/toplist&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">resp = requests.get(url,headers=headers)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">page_content = resp.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 数据解析</span></span><br><span class="line">ex = <span class="string">&#x27;&lt;img .*? data-src=&quot;(.*?)&quot; .*?&lt;a .*? href=&quot;(.*?)&quot; .*?&lt;span .*?&gt;(.*?)&lt;/span&gt;&#x27;</span></span><br><span class="line">data_list = re.findall(ex,page_content,re.S)</span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> data_list:</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="comment"># (&#x27;https://th.wallhaven.cc/small/l8/l83o92.jpg&#x27;, &#x27;https://wallhaven.cc/w/l83o92&#x27;, &#x27;1920 x 1200&#x27;)</span></span><br><span class="line"><span class="comment"># (&#x27;https://th.wallhaven.cc/small/85/85o67y.jpg&#x27;, &#x27;https://wallhaven.cc/w/85o67y&#x27;, &#x27;825 x 1400&#x27;)</span></span><br><span class="line"><span class="comment"># ... ...</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>方式二 bs4</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">url = <span class="string">&#x27;https://wallhaven.cc/toplist&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">resp = requests.get(url,headers=headers)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">page_content = resp.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 数据解析</span></span><br><span class="line"><span class="comment"># select()选择器定位  find_all()标签名+属性定位 他们都返回一个列表 |find()返回字符串类型</span></span><br><span class="line"><span class="comment"># [attr]不能直接从列表中获取属性的值</span></span><br><span class="line">soup = BeautifulSoup(page_content,<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">figure_list = soup.select(<span class="string">&#x27;figure.thumb&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> figure <span class="keyword">in</span> figure_list:</span><br><span class="line"></span><br><span class="line">    img_data_src = figure.find(<span class="string">&#x27;img&#x27;</span>)[<span class="string">&#x27;data-src&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(img_data_src)</span><br><span class="line"></span><br><span class="line">    a_href = figure.find(<span class="string">&#x27;a&#x27;</span>)[<span class="string">&#x27;href&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(a_href)</span><br><span class="line"></span><br><span class="line">    span = figure.find(<span class="string">&#x27;span&#x27;</span>).text     <span class="comment">#text获取标签内所有文本 string获取标签内直系文本</span></span><br><span class="line">    <span class="built_in">print</span>(span)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="comment"># https://th.wallhaven.cc/small/l8/l83o92.jpg</span></span><br><span class="line"><span class="comment"># https://wallhaven.cc/w/l83o92</span></span><br><span class="line"><span class="comment"># 1920 x 1200</span></span><br><span class="line"><span class="comment"># https://th.wallhaven.cc/small/85/85o67y.jpg</span></span><br><span class="line"><span class="comment"># https://wallhaven.cc/w/85o67y</span></span><br><span class="line"><span class="comment"># 825 x 1400</span></span><br><span class="line"><span class="comment"># ... ... </span></span><br></pre></td></tr></table></figure></div>
+<p><strong>方式三 xpath</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">url = <span class="string">&#x27;https://wallhaven.cc/toplist&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">resp = requests.get(url,headers=headers)</span><br><span class="line">resp.encoding = resp.apparent_encoding</span><br><span class="line">page_content = resp.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 数据解析</span></span><br><span class="line">tree = etree.HTML(page_content)</span><br><span class="line">figure_list = tree.xpath(<span class="string">&#x27;//figure&#x27;</span>)    <span class="comment">#在文档中查找figure标签，注意xpath()方法永远返回一个列表</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> figure <span class="keyword">in</span> figure_list:</span><br><span class="line">    img_data_src = figure.xpath(<span class="string">&#x27;./img/@data-src&#x27;</span>)[<span class="number">0</span>]  <span class="comment">#获取当前标签下的img标签的data-src属性的值</span></span><br><span class="line">    <span class="built_in">print</span>(img_data_src)</span><br><span class="line"></span><br><span class="line">    a_href = figure.xpath(<span class="string">&#x27;./a/@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(a_href)</span><br><span class="line"></span><br><span class="line">    span = figure.xpath(<span class="string">&#x27;.//span[@class=&quot;wall-res&quot;]/text()&#x27;</span>)[<span class="number">0</span>]  <span class="comment"># //在多个层级下寻找 /text()获取标签内的文本</span></span><br><span class="line">    <span class="built_in">print</span>(span)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="comment"># https://th.wallhaven.cc/small/l8/l83o92.jpg</span></span><br><span class="line"><span class="comment"># https://wallhaven.cc/w/l83o92</span></span><br><span class="line"><span class="comment"># 1920 x 1200</span></span><br><span class="line"><span class="comment"># https://th.wallhaven.cc/small/85/85o67y.jpg</span></span><br><span class="line"><span class="comment"># https://wallhaven.cc/w/85o67y</span></span><br><span class="line"><span class="comment"># 825 x 1400</span></span><br><span class="line"><span class="comment"># ... ... </span></span><br></pre></td></tr></table></figure></div>
+<h2>爬虫实战（进阶）</h2>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230113154149.png"
+                      alt="20230113154149"
+                ></p>
+<p>观察发现，每个图片都放在一个li标签中</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/sunday521/postimg.wyun521.top@main/img/2023/20230113160905.png"
+                      alt="20230113160905"
+                ></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取整个网页源代码 :给我一个url，返回页面源代码</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getPageContent</span>(<span class="params">url</span>):</span><br><span class="line">    resp = requests.get(url,headers=headers)</span><br><span class="line">    resp.encoding = resp.apparent_encoding  <span class="comment">#解决页面中文乱码,一定要在resp.text前调用</span></span><br><span class="line">    page_content = resp.text</span><br><span class="line">    <span class="keyword">return</span> page_content;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从父页面源代码中解析出每个子页面的url</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">jiexi</span>(<span class="params">ex,page_content</span>):</span><br><span class="line">    child_a_list = re.findall(ex,page_content,re.S)</span><br><span class="line">    child_a_list = child_a_list[<span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">return</span> child_a_list;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从子页面源代码中解析出图片地址</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">jiexi2</span>(<span class="params">ex,page_content</span>):</span><br><span class="line">    img_a_list = re.findall(ex, page_content, re.S)</span><br><span class="line">    <span class="keyword">return</span> img_a_list;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">saveImg</span>(<span class="params"><span class="built_in">dir</span>,img_url</span>):</span><br><span class="line">    nowtime = time.strftime(<span class="string">&quot;%Y%m%d-%H%M%S&quot;</span>, time.localtime())</span><br><span class="line">    filename = <span class="built_in">dir</span> + <span class="string">&#x27;\\&#x27;</span> + nowtime + <span class="string">&#x27;.jpg&#x27;</span></span><br><span class="line"></span><br><span class="line">    resp = requests.get(img_url, headers=headers)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">        fp.write(resp.content)</span><br><span class="line">        <span class="built_in">print</span>(filename, <span class="string">&#x27;保存成功!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">f&#x27;https://pic.netbian.com/4kmeinv/index_2.html&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ex = <span class="string">&#x27;&lt;li&gt;&lt;a href=&quot;(.*?)&quot; .*?&lt;b&gt;.*?&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dir = input(&#x27;请输入要将图片保存在那个路径下（如D:\\img）：&#x27;)</span></span><br><span class="line"><span class="built_in">dir</span> = <span class="string">&#x27;C:\\Users\\编程小白\\Pictures\\photo\\bian2&#x27;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="built_in">dir</span>):</span><br><span class="line">    os.mkdir(<span class="built_in">dir</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;该文件夹已经存在，不需要再创建&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">22</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;正在爬取第&#x27;</span>, page, <span class="string">&#x27;页图片...&#x27;</span>)</span><br><span class="line">    url = <span class="string">f&#x27;https://pic.netbian.com/4kdongwu/index_<span class="subst">&#123;page&#125;</span>.html&#x27;</span></span><br><span class="line">    page_content = getPageContent(url)</span><br><span class="line">    child_a_list = jiexi(ex, page_content)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> child_a <span class="keyword">in</span> child_a_list:</span><br><span class="line">        child_url = <span class="string">&#x27;https://pic.netbian.com&#x27;</span>+ child_a</span><br><span class="line">        child_page_content = getPageContent(child_url)</span><br><span class="line">        child_ex = <span class="string">&#x27;&lt;a href=&quot;&quot; id=&quot;img&quot;&gt;&lt;img src=&quot;(.*?)&quot;&#x27;</span></span><br><span class="line">        img_a_list = jiexi2(child_ex,child_page_content)          <span class="comment"># 获取父页面一页所有图片链接</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> img_a <span class="keyword">in</span> img_a_list:</span><br><span class="line">            img_url = <span class="string">&#x27;https://pic.netbian.com&#x27;</span> + img_a</span><br><span class="line">            <span class="built_in">print</span>(img_url)</span><br><span class="line">            saveImg(<span class="built_in">dir</span>,img_url)</span><br><span class="line"></span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br></pre></td></tr></table></figure></div>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    .article-copyright-info-container {
+  font-family "Noto Sans SC", sans-serif;8
+  position relative
+  width 100%
+  box-sizing border-box
+  padding 10px 6px
+  font-size 1rem
+  background var(--second-background-color)
+  border-radius 14px
+
+  &::after {
+    position absolute
+    top 0
+    left 0
+    content ''
+    width 6px
+    height 100%
+    background var(--copyright-info-color)
+    border-radius 5px
+  }
+
+
+  ul {
+
+    margin-left 10px
+
+    li {
+      margin-bottom 5px
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+      color var(--default-text-color)
+
+      .license {
+        font-weight bold
+      }
+
+      &:last-child {
+        margin-bottom 0
+      }
+    }
+  }
+}
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/posts/daec30d9.html"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">EJS初识</span>
+                                    <span class="post-nav-item">下一篇</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    if (hexo-config('comment.enable') == true && hexo-config('comment.use') != "") {
+  if (hexo-config('comment.use') == "waline") {
+    @require "./waline.styl"
+
+  } else if (hexo-config('comment.use') == "gitalk") {
+    @require "./gitalk.styl"
+
+  } else if (hexo-config('comment.use') == "twikoo") {
+    @require "./twikoo.styl"
+  }
+}
+
+.comments-container {
+  display inline-block
+  margin-top $component-spacing-value
+  width 100%
+
+  #comment-anchor {
+    width 100%
+    height 10px
+  }
+
+  .comment-area-title {
+    width 100%
+    margin 10px 0
+    font-size 1.38rem
+    color var(--default-text-color)
+
+    i {
+      color var(--default-text-color)
+    }
+
+    +redefine-tablet() {
+      margin 5px 0
+      font-size 1.2rem
+    }
+  }
+
+}
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                .post-toc-wrap {
+  width 100%
+  font-size 0.92rem
+  box-sizing border-box
+  font-family "Noto Sans", sans-serif
+
+
+  
+  .post-toc {
+    
+    ol {
+      border-left 2px dotted var(--shadow-color-1)
+      list-style none
+      margin 0
+      padding 0 2px 12px 10px
+      text-align left
+
+      &:last-child {
+        padding-bottom 0
+      }
+
+      > ol {
+        padding-left 0
+      }
+
+      a {
+        transition-property all
+        transition()
+        
+      }
+    }
+
+
+    .nav-item {
+      line-height 2
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+      //word-wrap:break-word
+      font-size 0.9rem
+    }
+
+
+    .nav {
+      .nav-child {
+        display hexo-config('toc.expand_all') ? block : none
+      }
+
+      .active > .nav-child {
+        display block
+      }
+
+      .active-current > .nav-child {
+        display block
+
+        > .nav-item {
+          display block
+        }
+      }
+
+
+      .nav-number, .nav-text {
+        color var(--third-text-color)
+      }
+
+      .active > a {
+        .nav-number, .nav-text {
+          color var(--primary-color)
+          font-weight bold
+        }
+
+      }
+
+      .active-current {
+        .nav-number, .nav-text {
+          color var(--primary-color) !important
+          font-weight bold
+          transition none
+        }
+      }
+
+      .active-current > span {
+        &:first-child::before {
+          content " "
+          width 10px
+          height 1.7rem
+          margin auto 0
+          transform translate(-12px,0)
+          border-left 2px solid var(--primary-color)
+          position absolute
+          margin-right 4px
+          color var(--primary-color)
+        }
+      }
+    }
+  }
+}
+
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            .footer {
+  font-size 1rem
+  color var(--third-text-color)
+
+
+  a {
+    color var(--third-text-color)
+
+
+    &:hover {
+      color var(--primary-color)
+
+    }
+  }
+
+  .info-container {
+    padding-bottom 10px
+    text-align center
+  }
+
+  .info-item {
+    margin 5px 0
+  }
+
+  .icon-animate {
+    animation icon-animate 1.2s ease-in-out infinite
+  }
+
+}
+
+
+
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            $li-border-radius = 10px
+$li-margin-bottom = 12px
+$post-tool-button-width = 42px
+
+.post-tools-container {
+
+  .tools-list {
+
+    li {
+      cursor pointer
+      width $post-tool-button-width
+      height $post-tool-button-width
+      border-radius $li-border-radius
+      font-size 1.2rem
+      display flex
+      align-items center
+      justify-content center
+      margin-bottom $li-margin-bottom
+      background var(--background-color)
+      color var(--default-text-color)
+
+      i {
+        color var(--default-text-color)
+      }
+
+      &:hover {
+        background var(--primary-color)
+        color var(--background-color)
+
+        i {
+          color var(--background-color)
+        }
+      }
+
+
+      &:last-child {
+        margin-bottom 0
+      }
+
+
+      hover-style(true, 1.06, 1.06)
+
+      &.page-aside-toggle {
+        display none
+
+        +redefine-tablet() {
+          display none !important
+        }
+      }
+    }
+  }
+
+}
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        $tools-item-width = 42px
+$tools-item-font-size = 1.3rem
+$tools-item-border-radius = 12px
+
+
+.side-tools-container {
+  position relative
+  right 30px
+
+  .tools-item {
+    width $tools-item-width
+    height $tools-item-width
+    font-size $tools-item-font-size
+    margin-bottom 3px
+    cursor pointer
+    border-right none
+    border-radius $tools-item-border-radius
+    box-shadow var(--redefine-box-shadow)
+    color var(--default-text-color)
+    background var(--background-color)
+
+    i {
+      color var(--default-text-color)
+    }
+
+    &:hover {
+      color var(--background-color)
+      background var(--primary-color)
+      box-shadow var(--redefine-box-shadow)
+
+      i {
+        color var(--background-color)
+      }
+    }
+
+    +redefine-tablet() {
+      width $tools-item-width * 0.9
+      height $tools-item-width * 0.9
+      font-size $tools-item-font-size * 0.9
+      margin-bottom 2px
+    }
+
+    &.rss {
+
+      a {
+        border-radius $tools-item-border-radius
+        width 100%
+        height 100%
+
+        &:hover {
+          color var(--background-color)
+          background var(--primary-color)
+          box-shadow var(--redefine-box-shadow)
+        }
+      }
+    }
+  }
+
+
+  .side-tools-list {
+    opacity 0
+    transform translateX(100%)
+    transition-t("transform, opacity", "0, 0", "0.2, 0.2", "ease, ease")
+
+    .tool-expand-width {
+      +redefine-tablet() {
+        display none
+      }
+    }
+
+
+    &.show {
+      opacity 1
+      transform translateX(0)
+    }
+  }
+
+
+  .exposed-tools-list {
+
+    if (hexo-config('style.scroll.percent.enable') == true) {
+      .tool-scroll-to-top {
+        display none
+
+        &.show {
+          display flex
+        }
+
+        &:hover {
+
+          .percent {
+            display none
+          }
+
+          .arrow-up {
+            display flex
+          }
+
+        }
+
+        .arrow-up {
+          display none
+        }
+
+        .percent {
+          display flex
+          font-size 1rem
+        }
+
+      }
+
+    }
+  }
+}
+
+    </div>
+
+    .image-viewer-container {
+  position fixed
+  left 0
+  top 0
+  width 100%
+  height 100%
+  display flex
+  align-items center
+  justify-content center
+  background rgba(0, 0, 0, 0)
+  visibility hidden
+  z-index $z-index-8
+  padding 6%
+  box-sizing border-box
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease")
+
+  &.active {
+    background rgba(0, 0, 0, 0.5)
+    visibility visible
+
+    img {
+      cursor zoom-out
+      transform scale(1)
+      padding 2px
+      background var(--background-color)
+    }
+  }
+
+  img {
+    max-width 100%
+    max-height 100%
+    transform scale(0)
+    transition-t("transform", "0", "0.3", "ease")
+  }
+}
+
+
+
+
+    
+        $icon-size = 1.2rem
+
+.search-pop-overlay {
+  position fixed
+  display flex
+  height 100%
+  width 100%
+  left 0
+  top 0
+  background rgba(0, 0, 0, 0)
+  visibility hidden
+  z-index $z-index-8
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease")
+
+  &.active {
+    visibility visible
+    background rgba(0, 0, 0, 0.35)
+
+    .search-popup {
+      transform scale(1)
+    }
+
+  }
+
+
+  .search-popup {
+    background var(--background-color)
+    border-radius 5px
+    height 80%
+    width 70%
+    margin auto
+    transform scale(0)
+    z-index $z-index-6
+    transition-t("transform", "0", "0.3", "ease")
+
+    +redefine-tablet() {
+      width 80%
+    }
+
+    +redefine-mobile() {
+      width 90%
+    }
+
+    .search-header {
+      background var(--fourth-text-color)
+      border-top-left-radius 2px
+      border-top-right-radius 2px
+      display flex
+      padding 10px
+
+      .search-input-field-pre, .popup-btn-close {
+        font-size $icon-size
+        padding 0 10px
+        display flex
+        align-items center
+      }
+
+      .search-input-field-pre {
+        cursor pointer
+        color var(--third-text-color)
+      }
+
+      .popup-btn-close {
+        color var(--default-text-color)
+      }
+
+
+      .search-input-container {
+
+        flex-grow 1
+        padding 2px
+
+        .search-input {
+          background transparent
+          border 0
+          outline 0
+          width 100%
+          font-size 1.2rem
+          color var(--default-text-color)
+
+          &::-webkit-search-cancel-button {
+            display none
+          }
+        }
+
+
+      }
+
+
+      .popup-btn-close {
+        cursor pointer
+
+        &:hover .fas, far, fab {
+          color var(--first-text-color)
+        }
+      }
+
+    }
+
+
+    #search-result {
+      display flex
+      height calc(100% - 55px)
+      overflow auto
+      padding 5px 25px
+
+      .search-result-list {
+        width 100%
+        height 100%
+        font-size 1rem
+
+        li {
+          border-bottom 1px dashed var(--border-color)
+          padding 10px 0
+          margin 10px 0
+          box-sizing border-box
+
+          &:last-child {
+            border-bottom none
+          }
+
+
+          .search-result-title {
+            position relative
+            font-weight bold
+            margin-bottom 10px
+            padding-left 16px
+            display flex
+            align-items center
+
+            &::after {
+              content ''
+              position absolute
+              width 5px
+              height 5px
+              border-radius 50%
+              top 50%
+              transform translateY(-50%)
+              left 0
+              background var(--default-text-color)
+            }
+          }
+
+
+          .search-result {
+            line-height 2rem
+            margin 0
+            padding-left 16px
+            word-wrap break-word
+          }
+
+          a {
+            &:hover {
+              color var(--default-text-color)
+            }
+          }
+
+          .search-keyword {
+            border-bottom 1px dashed var(--primary-color)
+            color var(--primary-color)
+            font-weight bold
+          }
+
+        }
+      }
+
+
+      #no-result {
+        color var(--third-text-color)
+        margin auto
+      }
+
+    }
+  }
+}
+
+
+    
+
+</main>
+
+
+
+<script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/header-shrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/back2top.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/local-search.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/code-copy.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/lazyload.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/runtime.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/css/odometer-theme-minimal.css">
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v0.5.2/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+<!-- hexo injector body_end start --> <script data-pjax>if(document.getElementsByClassName('home-article-list')[0] && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementsByClassName('home-article-list')[0];
+    var child = '<li class="home-article-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://sblog.wyun521.top/categories/web/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 小Sの前端 (3)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://sblog.wyun521.top/categories/hexo/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 小Sの建站 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://sblog.wyun521.top/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></li>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #DBDBDB;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #94BCFE}.magnet_link_more{color:#555}.magnet_link{color:#005080}.magnet_link:hover{color:#005080}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('home-article-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.2s');
+    arr[i].setAttribute('data-wow-delay', '0.2s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body>
+</html>

@@ -23,8 +23,24 @@
 
 /* 2. code代码块 */
 code {
+    border-radius: 12px;
+    background: #f6f7f8;
+    border: .1rem solid #0000001a;
+}
+
+.highlight-container[data-rel] {
     border-radius: 8px;
 }
+
+pre .comment,
+pre .quote {
+    font-style: normal;
+}
+
+.copy-btn {
+    border-radius: 5px;
+}
+
 
 /* 3. 标题 */
 .markdown-body h3:hover {
@@ -36,15 +52,12 @@ code {
     color: #005080; 
 }
 
-.markdown-body ul li::marker {
+/* .markdown-body ul li::marker {
     content: '>';
     color: #005080;
     padding-left: 1em;
-}
+} */
 
-.markdown-body ul li {
-    padding-left: 0.4em;
-}
 
 /* 5. 二级导航菜单项hover */
 .header-wrapper .header-content .right .pc .menu-list .menu-item .sub-menu li a:hover {
